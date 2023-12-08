@@ -54,4 +54,5 @@ def docstring_translator(docstr):
     presence_penalty=0
   )
   return response.choices[0].message.content
-print(docstring_translator("Make a list of ten prime numbers"))
+# print(docstring_translator("Make a list of ten prime numbers"))
+# OUTPUT: dus prime numbers ki list banao
