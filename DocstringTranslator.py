@@ -1,7 +1,7 @@
 # This code is for v1 of the openai package: pypi.org/project/openai
 import openai
 
-openai.api_key = "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"
+openai.api_key = "sk-YOUR-OPENAI-API-KEY"
 def docstring_translator(docstr):
   response = openai.ChatCompletion.create(
     model="gpt-3.5-turbo",
