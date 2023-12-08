@@ -44,6 +44,14 @@ def docstring_translator(docstr):
       },
       {
         "role": "user",
+        "content": "def function_name(arguments):"
+      },
+      {
+        "role": "assistant",
+        "content": "def function_name(arguments):"
+      },
+      {
+        "role": "user",
         "content": docstr
       }
     ],
