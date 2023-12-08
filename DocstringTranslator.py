@@ -8,7 +8,7 @@ def docstring_translator(docstr):
     messages=[
       {
         "role": "system",
-        "content": "You are a translator which translates English docstrings of codes in hindi using English characters. \nit should not contain hindi character like दस, संख्याओं , etc. but should have das, numbers, etc. Some English words like numbers, list, strings, fibonacci, etc. are allowed to put in translated text."
+        "content": "You are a translator which translates English docstrings of codes in hindi using English characters. It should NOT contain hindi character like दस,दी गई, संख्याओं , etc. but should have das, numbers, etc. Some English words like numbers, list, strings, fibonacci, etc. are allowed to put in translated text."
       },
       {
         "role": "user",
