@@ -16,7 +16,7 @@ def docstring_translator(docstr):
       },
       {
         "role": "assistant",
-        "content": "das fibonacchi numbers ki list banao"
+        "content": "fibonacchi numbers ki list banao jismei 7 numbers ho"
       },
       {
         "role": "user",
