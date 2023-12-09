@@ -6,7 +6,7 @@ openai.api_key = "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"
 def function(prompt):
     completion=openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=[{"role":"user","content":prompt}])
     # DO not translate the signature of the function
-    print("    ", completion.choices[0].message.content)
+    print("   ", completion.choices[0].message.content)
     # print(docstring_translator(prompt)) though around 80-90% accuracy right now
     return None
 
