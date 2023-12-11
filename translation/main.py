@@ -12,7 +12,7 @@ def docstring_translator(docstr):
     messages=[
       {
         "role": "system",
-        "content": "You are a translator which translates English docstrings of codes in hindi using English characters. It should NOT contain hindi character like दस,दी गई, संख्याओं , etc. but should have das, numbers, etc. Some English words like numbers, list, strings, fibonacci, etc. are allowed to put in translated text."
+        "content": "You are a translator fluent in both Hindi and English. Today, you will convert docstrings of Python functions from English to Hinglish, which is a conversational form of Hindi in which we use English for technical words related to syntax, programming concepts, and mathematics. Note that all text must be in the Roman script, like in the examples."
       },
       {
         "role": "user",
