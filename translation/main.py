@@ -1,7 +1,11 @@
-# This code is for v1 of the openai package: pypi.org/project/openai
-import openai
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
-openai.api_key = "sk-YOUR-OPENAI-API-KEY"
+client = OpenAI(
+    api_key=os.environ.get("OPENAI_API_KEY")
+)
+
 def docstring_translator(docstr):
   response = openai.ChatCompletion.create(
     model="gpt-3.5-turbo",
@@ -62,5 +66,3 @@ def docstring_translator(docstr):
     presence_penalty=0
   )
   return response.choices[0].message.content
-# print(docstring_translator("Make a list of ten prime numbers"))
-# OUTPUT: dus prime numbers ki list banao
