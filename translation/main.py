@@ -16,35 +16,35 @@ def docstring_translator(docstr):
       },
       {
         "role": "user",
-        "content": "Make a list of ten fibonacci numbers "
+        "content": "Make a list of ten Fibonacci numbers."
       },
       {
         "role": "assistant",
-        "content": "fibonacchi numbers ki list banao jismei 7 numbers ho"
+        "content": "Fibonacci numbers ki list banao jismei 7 numbers ho."
       },
       {
         "role": "user",
-        "content": "check if this word has length more than 3"
+        "content": "Check if this word has length more than 3."
       },
       {
         "role": "assistant",
-        "content": "jaach karo ki kya iss shabd ki length teen se upar hai ki nahi"
+        "content": "Jaach karo ki kya iss shabd ki length 3 se upar hai ki nahi."
       },
       {
         "role": "user",
-        "content": "add two numbers a and b"
+        "content": "Add two numbers a and b."
       },
       {
         "role": "assistant",
-        "content": "do numbers a aur b ko jodo"
+        "content": "Do numbers a aur b ko jodo."
       },
       {
         "role": "user",
-        "content": "check if this number is a perfect square"
+        "content": "Check if given number is a perfect square."
       },
       {
         "role": "assistant",
-        "content": "jaach karo ki kya ye number ek perfect square hai ki nahi"
+        "content": "Jaach karo ki kya diya gaya number ek perfect square hai ki nahi."
       },
       {
         "role": "user",
@@ -59,7 +59,7 @@ def docstring_translator(docstr):
         "content": docstr
       }
     ],
-    temperature=1,
+    temperature=0,
     max_tokens=256,
     top_p=1,
     frequency_penalty=0,
