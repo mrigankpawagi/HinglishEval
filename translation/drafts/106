@@ -1,0 +1,18 @@
+""" Implement the function f that takes n as a parameter,
+    and returns a list of size n, such that the value of the element at index i is the factorial of i if i is even
+    or the sum of numbers from 1 to i otherwise.
+    i starts from 1.
+    the factorial of i is the multiplication of the numbers from 1 to i (1 * 2 * ... * i).
+    Example:
+    f(5) == [1, 2, 6, 24, 15]
+    """
+
+"""
+Function f ko implement karo jo n ko parameter ke roop mein leta hai,
+    aur ek list return karta hai jiska size n hota hai, aisa ki index i par element ka value i ka factorial hota hai agar i even hai
+    ya fir 1 se lekar i tak ke numbers ka sum hota hai otherwise.
+    i ka start 1 se hota hai.
+    i ka factorial 1 se lekar i tak ke numbers ka multiplication hota hai (1 * 2 * ... * i).
+    Udaharan:
+    f(5) == [1, 2, 6, 24, 15]
+"""

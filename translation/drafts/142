@@ -1,0 +1,23 @@
+""""
+    This function will take a list of integers. For all entries in the list, the function shall square the integer entry if its index is a 
+    multiple of 3 and will cube the integer entry if its index is a multiple of 4 and not a multiple of 3. The function will not 
+    change the entries in the list whose indexes are not a multiple of 3 or 4. The function shall then return the sum of all entries. 
+    
+    Examples:
+    For lst = [1,2,3] the output should be 6
+    For lst = []  the output should be 0
+    For lst = [-1,-5,2,-1,-5]  the output should be -126
+    """
+
+"""
+"
+    Ye function ek integers ki list lega. List ke saare entries ke liye, function integer entry ko square karega agar uska index 3 ka 
+    multiple hai aur cube karega agar uska index 4 ka multiple hai aur 3 ka multiple nahi hai. Function un entries ko change nahi 
+    karega jinki indexes 3 ya 4 ka multiple nahi hai. Phir function saare entries ka sum return karega. 
+    
+    Examples:
+    Agar lst = [1,2,3] hai to output 6 hona chahiye
+    Agar lst = []  hai to output 0 hona chahiye
+    Agar lst = [-1,-5,2,-1,-5]  hai to output -126 hona chahiye
+
+"""

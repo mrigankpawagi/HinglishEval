@@ -1,0 +1,26 @@
+""" Input to this function is a string representing musical notes in a special ASCII format.
+    Your task is to parse this string and return list of integers corresponding to how many beats does each
+    not last.
+
+    Here is a legend:
+    'o' - whole note, lasts four beats
+    'o|' - half note, lasts two beats
+    '.|' - quater note, lasts one beat
+
+    >>> parse_music('o o| .| o| o| .| .| .| .| o o')
+    [4, 2, 1, 2, 2, 1, 1, 1, 1, 4, 4]
+    """
+
+"""
+Is function ka input ek string hota hai jo musical notes ko ek special ASCII format mein represent karta hai.
+    Aapka kaam hai is string ko parse karna aur ek integers ki list return karni hai jo correspond karti hai ki har note kitne beats tak chalta hai.
+
+    Yaha ek legend hai:
+    'o' - whole note, jo four beats tak chalta hai
+    'o|' - half note, jo two beats tak chalta hai
+    '.|' - quater note, jo one beat tak chalta hai
+
+    >>> parse_music('o o| .| o| o| .| .| .| .| o o')
+    [4, 2, 1, 2, 2, 1, 1, 1, 1, 4, 4]
+
+"""
