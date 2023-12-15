@@ -47,12 +47,12 @@ if __name__ == "__main__":
     for problem in data:
         task_id = problem["task_id"].split("/")[-1]
         prompt = problem["prompt"]
-        docstring = re.findall(r'"""(.*?)"""', prompt, re.DOTALL)[0]
+        docstring = (re.findall(r'"""(.*?)"""', prompt, re.DOTALL) + re.findall(r"'''(.*?)'''", prompt, re.DOTALL))[0]
 
         try:
             res = docstring_translator(docstring)
         except Exception:
             continue
 
-        with open(f"drafts/{task_id}", "w") as f:
+        with open(f"drafts/{task_id}", "w", encoding="utf-8") as f:
             f.write(f'"""{docstring}"""\n\n"""\n{res}\n"""')
