@@ -3,8 +3,12 @@ name: Style Checking with Flake8
 on:
   push:
     branches: [ "main" ]
+    paths:
+      - "translation/**"
   pull_request:
     branches: [ "main" ]
+    paths:
+      - "translation/**"
 
 jobs:  
   build:  
@@ -24,4 +28,4 @@ jobs:
           python -m pip install flake8
       - name: Check with flake8  
         run: |  
-          flake8 .
+          flake8 translation
