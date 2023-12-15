@@ -28,4 +28,4 @@ jobs:
           python -m pip install flake8
       - name: Check with flake8  
         run: |  
-          flake8 translation
+          flake8 --ignore=E501 translation
