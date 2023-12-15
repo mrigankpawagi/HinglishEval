@@ -12,7 +12,7 @@ client = OpenAI(
 
 def docstring_translator(docstr):
     response = client.chat.completions.create(
-        model="gpt-3.5-turbo-16k",
+        model="gpt-4",
         messages=[
             {
                 "role": "system",
@@ -56,3 +56,5 @@ if __name__ == "__main__":
 
         with open(f"drafts/{task_id}", "w") as f:
             f.write(f'"""{docstring}"""\n\n"""\n{res}\n"""')
+
+        break
