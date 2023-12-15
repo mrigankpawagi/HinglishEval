@@ -1,0 +1,10 @@
+""" Return list of all prefixes from shortest to longest of the input string
+    >>> all_prefixes('abc')
+    ['a', 'ab', 'abc']
+    """
+
+"""
+Input string ke saare prefixes ko shortest se longest tak ki list return karo
+    >>> all_prefixes('abc')
+    ['a', 'ab', 'abc']
+"""

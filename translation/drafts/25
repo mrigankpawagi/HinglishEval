@@ -1,0 +1,22 @@
+""" Return list of prime factors of given integer in the order from smallest to largest.
+    Each of the factors should be listed number of times corresponding to how many times it appeares in factorization.
+    Input number should be equal to the product of all factors
+    >>> factorize(8)
+    [2, 2, 2]
+    >>> factorize(25)
+    [5, 5]
+    >>> factorize(70)
+    [2, 5, 7]
+    """
+
+"""
+Diye gaye integer ke prime factors ki list return karo, order chhote se bade tak hona chahiye.
+    Har ek factor ko utni baar list mein hona chahiye jitni baar wo factorization mein aata hai.
+    Input number sabhi factors ka product hona chahiye
+    >>> factorize(8)
+    [2, 2, 2]
+    >>> factorize(25)
+    [5, 5]
+    >>> factorize(70)
+    [2, 5, 7]
+"""
