@@ -56,5 +56,3 @@ if __name__ == "__main__":
 
         with open(f"drafts/{task_id}", "w") as f:
             f.write(f'"""{docstring}"""\n\n"""\n{res}\n"""')
-
-        break
