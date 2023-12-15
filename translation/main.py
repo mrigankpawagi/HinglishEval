@@ -1,5 +1,7 @@
 from openai import OpenAI
 import os
+import json
+import re
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -18,11 +20,11 @@ def docstring_translator(docstr):
             },
             {
                 "role": "user",
-                "content": "Given a positive integer n, return the product of the odd digits.\\n    Return 0 if all digits are even.\\n    For example:\\n    digits(1)  == 1\\n    digits(4)  == 0\\n    digits(235) == 15\\n"
+                "content": "Given a positive integer n, return the product of the odd digits.\n    Return 0 if all digits are even.\n    For example:\n    digits(1)  == 1\n    digits(4)  == 0\n    digits(235) == 15\n"
             },
             {
                 "role": "assistant",
-                "content": "Diye gaye positive integer n ke odd digits ka product return karo.\\n    Agar saare digits even ho to 0 return karo.\\n    Jaise ki:\\n     digits(1)  == 1\\n    digits(4)  == 0\\n    digits(235) == 15\\n"
+                "content": "Diye gaye positive integer n ke odd digits ka product return karo.\n    Agar saare digits even ho to 0 return karo.\n    Jaise ki:\n     digits(1)  == 1\n    digits(4)  == 0\n    digits(235) == 15\n"
             },
             {
                 "role": "user",
@@ -39,4 +41,18 @@ def docstring_translator(docstr):
 
 
 if __name__ == "__main__":
-    pass
+    with open("../HumanEval.json") as f:
+        data = json.load(f)
+
+    for problem in data:
+        task_id = problem["task_id"].split("/")[-1]
+        prompt = problem["prompt"]
+        docstring = re.findall(r'"""(.*?)"""', prompt, re.DOTALL)[0]
+
+        try:
+            res = docstring_translator(docstring)
+        except Exception:
+            continue
+
+        with open(f"drafts/{task_id}", "w") as f:
+            f.write(f'"""{docstring}"""\n\n"""\n{res}\n"""')
