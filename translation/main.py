@@ -13,52 +13,20 @@ def docstring_translator(docstr):
         model="gpt-3.5-turbo-16k",
         messages=[
             {
-                "role": "system",
-                "content": "You are a translator fluent in both Hindi and English. Today, you will convert docstrings of Python functions from English to Hinglish, which is a conversational form of Hindi in which we use English for technical words related to syntax, programming concepts, and mathematics. Note that all text must be in the Roman script, like in the examples."
+            "role": "system",
+            "content": "You are a translator fluent in both Hindi and English. Today, you will convert docstrings of Python functions from English to Hinglish, which is a conversational form of Hindi in which we use English for technical words related to syntax or code, programming concepts, and mathematics. Note that all text must be in the Roman script, like in the example."
             },
             {
-                "role": "user",
-                "content": "Make a list of ten Fibonacci numbers."
+            "role": "user",
+            "content": "Given a positive integer n, return the product of the odd digits.\\n    Return 0 if all digits are even.\\n    For example:\\n    digits(1)  == 1\\n    digits(4)  == 0\\n    digits(235) == 15\\n"
             },
             {
-                "role": "assistant",
-                "content": "Fibonacci numbers ki list banao jismei 7 numbers ho."
+            "role": "assistant",
+            "content": "Diye gaye positive integer n ke odd digits ka product return karo.\\n    Agar saare digits even ho to 0 return karo.\\n    Jaise ki:\\n     digits(1)  == 1\\n    digits(4)  == 0\\n    digits(235) == 15\\n"
             },
             {
-                "role": "user",
-                "content": "Check if this word has length more than 3."
-            },
-            {
-                "role": "assistant",
-                "content": "Jaach karo ki kya iss shabd ki length 3 se upar hai ki nahi."
-            },
-            {
-                "role": "user",
-                "content": "Add two numbers a and b."
-            },
-            {
-                "role": "assistant",
-                "content": "Do numbers a aur b ko jodo."
-            },
-            {
-                "role": "user",
-                "content": "Check if given number is a perfect square."
-            },
-            {
-                "role": "assistant",
-                "content": "Jaach karo ki kya diya gaya number ek perfect square hai ki nahi."
-            },
-            {
-                "role": "user",
-                "content": "def function_name(arguments):"
-            },
-            {
-                "role": "assistant",
-                "content": "def function_name(arguments):"
-            },
-            {
-                "role": "user",
-                "content": docstr
+            "role": "user",
+            "content": docstr
             }
         ],
         temperature=0,
