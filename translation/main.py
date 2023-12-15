@@ -1,3 +1,4 @@
+from openai import OpenAI
 import os
 from dotenv import load_dotenv
 load_dotenv()
@@ -6,9 +7,10 @@ client = OpenAI(
     api_key=os.environ.get("OPENAI_API_KEY")
 )
 
+
 def docstring_translator(docstr):
-  response = openai.ChatCompletion.create(
-    model="gpt-3.5-turbo",
+  response = client.chat.completions.create(
+    model="gpt-3.5-turbo-16k",
     messages=[
       {
         "role": "system",
@@ -28,7 +30,7 @@ def docstring_translator(docstr):
       },
       {
         "role": "assistant",
-        "content": "Jaach karo ki kya iss shabd ki length 3 se upar hai ki nahi."
+        "content": "Kya is word "
       },
       {
         "role": "user",
@@ -66,3 +68,7 @@ def docstring_translator(docstr):
     presence_penalty=0
   )
   return response.choices[0].message.content
+
+
+if __name__ == "__main__":
+  pass
