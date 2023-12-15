@@ -1,0 +1,7 @@
+"""
+    returns encoded string by shifting every character by 5 in the alphabet.
+    """
+
+"""
+Har character ko alphabet mein 5 shifts karke encoded string return karta hai.
+"""

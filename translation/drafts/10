@@ -1,0 +1,5 @@
+""" Test if given string is a palindrome """
+
+"""
+Diye gaye string ko check karo ki woh palindrome hai ya nahi.
+"""

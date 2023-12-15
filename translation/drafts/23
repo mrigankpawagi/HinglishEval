@@ -1,0 +1,14 @@
+""" Return length of given string
+    >>> strlen('')
+    0
+    >>> strlen('abc')
+    3
+    """
+
+"""
+Diye gaye string ki length return karo
+    >>> strlen('')
+    0
+    >>> strlen('abc')
+    3
+"""
