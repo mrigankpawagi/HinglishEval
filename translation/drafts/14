@@ -4,7 +4,7 @@
     """
 
 """
-Input string ke saare prefixes ko shortest se longest tak ki list return karo
+Input string ke sabhi prefixes ko shortest se longest tak, list mei return karo
     >>> all_prefixes('abc')
     ['a', 'ab', 'abc']
 """
