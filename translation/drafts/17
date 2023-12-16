@@ -12,8 +12,8 @@
     """
 
 """
-Is function ka input ek string hota hai jo musical notes ko ek special ASCII format mein represent karta hai.
-    Aapka kaam hai is string ko parse karna aur ek integers ki list return karni hai jo correspond karti hai ki har note kitne beats tak chalta hai.
+Is function ka input ek string hai jo musical notes ko ek special ASCII format mein represent karta hai.
+    Aapka kaam hai is string ko parse karna aur ek integers ki list return karna jo correspond karti hai ki har note kitne beats tak chalta hai.
 
     Yaha ek legend hai:
     'o' - whole note, jo four beats tak chalta hai
