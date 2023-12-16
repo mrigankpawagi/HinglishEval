@@ -11,10 +11,8 @@ prompt = "def addition(a:int, b:int): return sum of two numbers a and b"
 def prompt_output(text):
     print("generating code...")
     input_ids = tokenizer(text, return_tensors="pt").input_ids
-    print("a bit more time...")
     # multiple outputs are automatically generated  by giving more max_length. It will abruptly stop in bw a code(last one)
     generated_ids = model.generate(input_ids, max_length=170, pad_token_id=50256)
-    print("just itty bitty time more...")
     print(tokenizer.decode(tensor_redefine(generated_ids[0]), skip_special_tokens=True))
 
 def tensor_redefine(tensor):
