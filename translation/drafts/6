@@ -7,9 +7,9 @@
     """
 
 """
-Is function ka input ek string hai jisme nested parentheses ke multiple groups hote hai, jo alag kiye gaye hain spaces ke dwara.
-    Har group ke liye, sabse gehri level ki nesting of parentheses ka output kare.
-    Jaise ki, (()()) ka maximum do levels ki nesting hoti hai jabki ((())) ki teen hoti hai.
+Is function ka input ek string hai jisme nested parentheses ke multiple groups hai, jo spaces ke dwara alag kiye gaye hai.
+    Har group ke liye, sabse andar ke nested parentheses ke level ko output kare.
+    Jaise ki, (()()) ki maximum do levels ki nesting hai jabki ((())) ki teen hai.
 
     >>> parse_nested_parens('(()()) ((())) () ((())()())')
     [2, 3, 1, 3]
