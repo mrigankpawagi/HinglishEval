@@ -6,7 +6,7 @@
     """
 
 """
-Ek string return karo jisme 0 se lekar n tak ke numbers space-delimited honge.
+Ek string return karo jisme 0 se lekar n tak ke numbers inclusive space-delimited honge.
     >>> string_sequence(0)
     '0'
     >>> string_sequence(5)
