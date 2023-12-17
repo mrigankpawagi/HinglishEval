@@ -11,7 +11,7 @@
     """
 
 """
-Diye gaye positive integers ki list x. Woh saare elements return karo jo sorted list me hai aur jisme koi bhi even digit nahi hai.
+Diye gaye positive integers ki list x me Woh saare elements ki sorted list return karo jisme koi bhi even digit nahi hai.
 
     Dhyan de: Return ki gayi list ko increasing order me sort kiya jana chahiye.
     
