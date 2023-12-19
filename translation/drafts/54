@@ -15,7 +15,7 @@
     """
 
 """
-Dekho ki do shabd me same characters hai ya nahi.
+Check karo ki do shabd me same characters hai ya nahi.
     >>> same_chars('eabcdzzzz', 'dddzzzzzzzddeddabc')
     True
     >>> same_chars('abcd', 'dddddddabc')
