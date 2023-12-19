@@ -11,7 +11,7 @@
     """
 
 """
-Aapka task hai ek function likhna jo true return kare agar number x n ka simple
+Aapka task hai ek function likhna jo true return kare agar number x, n ka simple
     power hai aur false return kare anya cases mein.
     x n ka simple power hai agar n**int=x
     Jaise ki:
