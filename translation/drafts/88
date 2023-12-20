@@ -14,7 +14,7 @@
     """
 
 """
-Non-negative integers ki ek array di gayi hai, return karo us array ka copy sort karne ke baad,
+Non-negative integers ki ek array di gayi hai, return karo us array ka copy, sort karne ke baad,
     aapko di gayi array ko ascending order mein sort karna hai agar sum( pehle index ki value, last index ki value) odd hai,
     ya fir descending order mein sort karna hai agar sum( pehle index ki value, last index ki value) even hai.
 
