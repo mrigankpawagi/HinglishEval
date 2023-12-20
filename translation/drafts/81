@@ -25,7 +25,7 @@
 
 """
 Yeh semester ka aakhri week hai aur teacher ko students ko grades dena hai.
-    Teacher ne apna khud ka algorithm banaya hai grading ke liye.
+    Teacher ne apna khud ka tareeka banaya hai grading ke liye.
     Sirf ek problem hai, unhone jo code use kiya tha grading ke liye, woh kho gaya hai.
     Unhone aapko kuch students ke GPAs ki list di hai aur aapko ek function likhna hai 
     jo letter grades ki list output kar sake, neeche diye gaye table ke hisaab se:
@@ -45,7 +45,7 @@ Yeh semester ka aakhri week hai aur teacher ko students ko grades dena hai.
               0.0                E
     
 
-    Example:
+    Udaharan:
     grade_equation([4.0, 3, 1.7, 2, 3.5]) ==> ['A+', 'B', 'C-', 'C', 'A-']
 
 """
