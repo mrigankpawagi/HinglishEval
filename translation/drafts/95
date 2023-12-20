@@ -11,7 +11,7 @@
     """
 
 """
-Ek dictionary di gayi hai, return karo True agar saare keys lower case strings hai ya saare keys upper case strings hai, nahi to return karo False.
+Ek dictionary jo di gayi hai, return karo True agar saare keys lower case strings hai ya saare keys upper case strings hai, nahi to return karo False.
     Agar di gayi dictionary khali hai to function False return karega.
     Udaharan:
     check_dict_case({"a":"apple", "b":"banana"}) ka return hona chahiye True.
