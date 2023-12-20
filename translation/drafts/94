@@ -11,7 +11,7 @@
     """
 
 """
-Aapko ek list di gayi hai integers ki.
+Aapko ek integers ki list di gayi hai.
     Aapko sabse bada prime value dhundna hai aur uske digits ka sum return karna hai.
 
     Udaharan:
