@@ -16,7 +16,9 @@
     """
 
 """
-Sabhi ko Fibonacci sequence ke baare mein pata hai, yeh mathematicians ne pichle kuch sadiyon mein gahrai se adhyayan kiya. Lekin, jo log nahi jaante woh hai Tribonacci sequence.
+Sabhi ko Fibonacci sequence ke baare mein pata hai, yeh mathematicians
+ne pichle kuch sadiyon mein gahrai se adhyayan kiya. Lekin, jo log nahi jaante
+woh hai Tribonacci sequence.
     Tribonacci sequence ko define kiya gaya hai recurrence ke dwara:
     tri(1) = 3
     tri(n) = 1 + n / 2, agar n even hai.
