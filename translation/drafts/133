@@ -13,7 +13,7 @@
 
 """
 Aapko ek numbers ki list di gayi hai.
-    Aapko di gayi list mein sum of squared numbers return karna hai,
+    Aapko di gayi list ke squared numbers ka sum return karna hai,
     pehle har element ko list mein upper int(Ceiling) par round karo.
     Udaharan:
     Agar lst = [1,2,3] hai to output hona chahiye 14
