@@ -11,9 +11,9 @@
     """
 
 """
-Ek function banao jo integers, floats, ya strings jo real numbers ko represent karte hain, leta hai aur usme se bada variable uske diye gaye variable type mein return karta hai.
+Ek function banao jo integers, floats, ya real numbers ko represent karne waale strings leta hai aur usme se bada variable uske diye gaye variable type mein return karta hai.
     Agar values equal hain to None return karo.
-    Dhyan do: Agar ek real number ko string ke roop mein represent kiya gaya hai, to floating point . ya , ho sakta hai.
+    Dhyan do: Agar ek real number ko string ke roop mein diya hai, to floating point . ya , ho sakta hai.
 
     compare_one(1, 2.5) ➞ 2.5
     compare_one(1, "2,3") ➞ "2,3"
