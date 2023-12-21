@@ -7,8 +7,8 @@ def mistralAI(prompt: str, device):
     tokenizer = AutoTokenizer.from_pretrained("mistralai/Mistral-7B-Instruct-v0.2")
 
     messages = [
-        {"role": "user", "content": "def prime(num:int): \"\"\" Returns True if num is prime, else False \"\"\""},
-        {"role": "assistant", "content": "def prime(num:int): \"\"\" Returns True if num is prime, else False \"\"\" \n return num > 1 and all(num % i != 0 for i in range(2, num))"},
+        {"role": "user", "content": "def prime(num:int):\n \"\"\" Returns True if num is prime, else False \"\"\""},
+        {"role": "assistant", "content": "def prime(num:int):\n \"\"\" Returns True if num is prime, else False \"\"\" \n return num > 1 and all(num % i != 0 for i in range(2, num))"},
         {"role": "user", "content": prompt}
     ]
 
@@ -17,9 +17,10 @@ def mistralAI(prompt: str, device):
     model_inputs = encodeds.to(device)
     model.to(device)
 
-    generated_ids = model.generate(model_inputs, max_new_tokens=1000, do_sample=True)
+    generated_ids = model.generate(model_inputs, max_new_tokens=1000, do_sample=True, pad_token_id=tokenizer.eos_token_id)
     decoded = tokenizer.batch_decode(generated_ids)
-    print(decoded[0])
+    decoded=decoded[0].split("[/INST]")
+    print(decoded[2][:-4])
 
 if __name__=="__main__":
     prompt = "def perfectsq(num:int): \"\"\" Returns True if num is a perfect square, else False \"\"\""
