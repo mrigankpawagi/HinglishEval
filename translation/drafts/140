@@ -10,7 +10,7 @@
     """
 
 """
-Diye gaye string text mein, saare spaces ko underscores se replace karo,
+    Diye gaye string text mein saare spaces ko underscores se replace karo,
     aur agar ek string mein 2 se zyada consecutive spaces ho,
     toh saare consecutive spaces ko - se replace karo.
     
