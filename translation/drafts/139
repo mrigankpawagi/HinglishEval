@@ -11,7 +11,7 @@
     """
 
 """
-Brazilian factorial is defined as:
+Brazilian factorial aise define kiya gaya hai:
     brazilian_factorial(n) = n! * (n-1)! * (n-2)! * ... * 1!
     jaha n > 0
 
@@ -19,6 +19,5 @@ Brazilian factorial is defined as:
     >>> special_factorial(4)
     288
 
-    Ye function ek integer input ke roop me lega aur is integer ka special
-    factorial return karega.
+    Ye function ek integer input lega aur is integer ka special factorial return karega.
 """
