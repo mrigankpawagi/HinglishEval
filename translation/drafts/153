@@ -18,8 +18,8 @@
 """
 Aapko ek class ka naam (ek string) aur ek extensions ki list di jayegi.
     Extensions ko additional classes ko class me load karne ke liye use kiya jata hai. Extension ki
-    strength is prakar hai: Maan lijiye CAP extension ke naam me uppercase
-    letters ki sankhya hai, aur SM extension ke naam me lowercase letters 
+    strength is prakar hai: Maan lijiye number CAP, extension ke naam me uppercase
+    letters ki sankhya hai, aur number SM, extension ke naam me lowercase letters 
     ki sankhya hai, strength ka nirdharan CAP - SM ke fraction se hota hai. 
     Aapko sabse strong extension dhundhni hai aur is 
     format me ek string return karni hai: ClassName.StrongestExtensionName.
