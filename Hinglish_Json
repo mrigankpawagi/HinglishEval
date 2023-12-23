@@ -7,7 +7,7 @@ def extract_prompt_from_file(file_path):
     # Split the content using triple double quotes
     parts = content.split('"""')
 
-    return parts[3].strip()
+    return '"""\n' + parts[3].strip() + '\n"""'
 
 def hinglish_json():
 
