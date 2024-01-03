@@ -10,9 +10,9 @@
     """
 
 """
-Diye gaye integer ke prime factors ki list return karo, order chhote se bade tak hona chahiye.
+Diye gaye integer ke prime factors ki list return karo, jiska order chhote se bade tak hona chahiye.
     Har ek factor ko utni baar list mein hona chahiye jitni baar wo factorization mein aata hai.
-    Input number sabhi factors ka product hona chahiye
+    Input number sabhi factors ke product ke barabar hona chahiye
     >>> factorize(8)
     [2, 2, 2]
     >>> factorize(25)
