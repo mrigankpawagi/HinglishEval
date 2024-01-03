@@ -18,7 +18,7 @@
 
 """
 Ek function banao jo 3 numbers leta hai.
-    Agar koi ek number doosre do numbers ka sum ho, aur saare numbers integers ho, toh true return kare.
+    Agar koi bhi ek number doosre dono numbers ka sum ho, aur saare numbers integers ho, toh true return kare.
     Kisi bhi aur case mein false return kare.
     
     Udaharan
