@@ -18,7 +18,7 @@
 
 """
 Ek function banaiye jo ek value (string) leta hai jo ek number represent karta hai
-    aur uska sabse close integer return karta hai. Agar number do integers ke beech 
+    aur uska sabse pas vala integer return karta hai. Agar number do integers ke beech 
     samanantar hai, toh use zero se door round karo.
 
     Udaharan

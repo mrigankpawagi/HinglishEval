@@ -9,7 +9,7 @@
     """
 
 """
-Do integers ka input lekar unke unit digits ka product return karega ye function.
+Ek function banao jo do integers ka input lekar unke unit digits ka product return karega ye function.
     Maan lo ki input hamesha valid hoga.
     Udaharan:
     multiply(148, 412) ka return hoga 16.

@@ -20,8 +20,8 @@
 
 """
 Aapko do intervals diye gaye hain,
-    jahan har interval ek integers ki jodi hoti hai. Jaise ki, interval = (start, end) = (1, 2).
-    Diye gaye intervals closed hote hain matlab ki interval (start, end)
+    jahan har interval do integers ki jodi hoti hai. Jaise ki, interval = (start, end) = (1, 2).
+    Diye gaye intervals closed hote hain jiska matlab hai interval (start, end)
     dono start aur end ko include karta hai.
     Har diye gaye interval ke liye, maan liya jata hai ki uska start uske end se kam ya barabar hota hai.
     Aapka task hai yeh determine karna ki in dono 

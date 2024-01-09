@@ -23,11 +23,10 @@ Aapko ek class ka naam (ek string) aur ek extensions ki list di jayegi.
     ki sankhya hai, strength ka nirdharan CAP - SM ke fraction se hota hai. 
     Aapko sabse strong extension dhundhni hai aur is 
     format me ek string return karni hai: ClassName.StrongestExtensionName.
-    Agar do ya do se adhik extensions ki strength same ho, to aapko
+    Agar do ya do se zyada extensions ki strength same ho, to aapko
     list me sabse pehle aane wale extension ko chunna chahiye.
-    Udaharan ke liye, agar aapko "Slices" class di gayi hai aur extensions ki list me
-    hai: ['SErviNGSliCes', 'Cheese', 'StuFfed'] to aapko
-    'Slices.SErviNGSliCes' return karna chahiye kyunki 'SErviNGSliCes' sabse strong extension 
+    Udaharan ke liye, agar aapko "Slices" class aur extensions ki list: ['SErviNGSliCes', 'Cheese', 'StuFfed'] 
+    di gayi hai to aapko 'Slices.SErviNGSliCes' return karna chahiye kyunki 'SErviNGSliCes' sabse strong extension 
     hai (iska strength -1 hai).
     Udaharan:
     for Strongest_Extension('my_class', ['AA', 'Be', 'CC']) == 'my_class.AA'

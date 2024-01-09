@@ -11,7 +11,7 @@
     """
 
 """
-Diye gaye string ko check karta hai ki kya yeh palindrome hai
+Diye gaye string ko check karo ki kya yeh palindrome hai
     >>> is_palindrome('')
     True
     >>> is_palindrome('aba')

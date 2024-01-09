@@ -13,8 +13,8 @@
 
 """
 Ek function likho jo ek string leta hai aur uska ordered version return karta hai.
-    Ordered version of string, woh string hoti hai jahan saare words (space se separated)
-    ko ek naye word se replace kiya jata hai jahan saare characters ko 
+    String ka ordered version, woh string hoti hai jahan saare words (space se separated)
+    ko ek naye word se replace kiya jata hai jisme saare characters ko 
     unke ascii value ke basis pe ascending order mein arrange kiya jata hai.
     Dhyan do: Aapko words aur blank spaces ki order sentence mein maintain karni chahiye.
 

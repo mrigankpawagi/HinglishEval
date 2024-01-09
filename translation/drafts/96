@@ -10,7 +10,7 @@
     """
 
 """
-Ek function implement karo jo ek non-negative integer leta hai aur return karta hai ek array jisme pehle n 
+Ek function implement karo jo ek non-negative integer leta hai aur ek array return karta hai jisme pehle n 
     integers hote hai jo prime numbers hai aur n se kam hai.
     Jaise ki:
     count_up_to(5) => [2,3]
