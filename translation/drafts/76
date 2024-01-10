@@ -12,7 +12,7 @@
 
 """
 Aapka task hai ek function likhna jo true return kare agar number x, n ka simple
-    power hai aur false return kare anya cases mein.
+    power hai aur false return kare baaki cases mein.
     x n ka simple power hai agar n**int=x
     Jaise ki:
     is_simple_power(1, 4) => true
