@@ -3,5 +3,5 @@
     """
 
 """
-Har character ko alphabet mein 5 shifts karke encoded string return karta hai.
+Har character ko alphabet mein 5 se shift karke encoded string return karta hai.
 """

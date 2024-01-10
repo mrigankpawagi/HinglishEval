@@ -45,7 +45,7 @@ Yeh semester ka aakhri week hai aur teacher ko students ko grades dena hai.
               0.0                E
     
 
-    Example:
+    Udaharan:
     grade_equation([4.0, 3, 1.7, 2, 3.5]) ==> ['A+', 'B', 'C-', 'C', 'A-']
 
 """

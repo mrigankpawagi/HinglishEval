@@ -10,7 +10,7 @@
     """
 
 """
-Diye gaye positive integer ko uska roman numeral equivalent ke roop mein string ke roop mein prapt karo,
+Diye gaye positive integer ko uska roman numeral equivalent ke roop mein, string ke roop mein return karo,
     aur ise lowercase mein return karo.
     Restrictions: 1 <= num <= 1000
 

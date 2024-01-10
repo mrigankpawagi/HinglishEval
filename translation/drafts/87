@@ -28,7 +28,7 @@ Aapko ek 2 dimensional data diya gaya hai, ek nested lists ke roop mein,
     Coordinates ko pehle rows ke hisaab se ascending order mein sort karo.
     Saath hi, row ke coordinates ko columns ke hisaab se descending order mein sort karo.
     
-    Examples:
+    Udaharan:
     get_row([
       [1,2,3,4,5,6],
       [1,2,3,4,1,6],

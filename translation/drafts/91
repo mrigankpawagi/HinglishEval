@@ -11,7 +11,7 @@
     """
 
 """
-Aapko ek string di jayegi jisme words honge, aur aapka task hai ginna ki kitne boredoms hai. Ek boredom woh sentence hota hai jo "I" word se start hota hai.
+Aapko ek string di jayegi jisme words honge, aur aapko ginna hai ki us string me kitne boredoms hai. Ek boredom woh sentence hota hai jo "I" word se start hota hai.
     Sentences ko '.' , '?' ya '!' se alag kiya jata hai.
    
     Udaharan ke liye:

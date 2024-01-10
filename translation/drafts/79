@@ -16,9 +16,9 @@ Aapko ek number decimal form mein diya jayega aur aapka task hai use
     number ko represent karega. String mein har character '0' ya '1' hoga.
 
     String ke shuru aur ant mein 'db' naam ke kuch extra characters honge.
-    Ye extra characters format ke liye diye gaye hain.
+    Ye extra characters format ki sahayata ke liye diye gaye hain.
 
     Udaharan:
-    decimal_to_binary(15)   # returns "db1111db"
-    decimal_to_binary(32)   # returns "db100000db"
+    decimal_to_binary(15)   # deta hai "db1111db"
+    decimal_to_binary(32)   # deta hai "db100000db"
 """

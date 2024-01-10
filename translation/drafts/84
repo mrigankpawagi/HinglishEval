@@ -13,7 +13,7 @@
     """
 
 """
-Diye gaye positive integer N ka, uske digits ka total sum binary mein return karo.
+Diye gaye positive integer N ke digits ka total sum binary mein return karo.
     
     Udaharan
         Agar N = 1000 hai, to digits ka sum hoga 1 aur output honi chahiye "1".
