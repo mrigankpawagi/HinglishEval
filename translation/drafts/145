@@ -10,9 +10,9 @@
     """
 
 """
-    Ek function likho jo diye gaye integers ki list ko unke digits ka sum ke hisaab se ascending order mein sort karta hai.
-    Dhyan do: agar kuch items ke digits ka sum baraabar ho, 
-    toh unhe di gayi list me unke index ke hisaab se order karo.
+Ek function likho jo diye gaye integers ki list ko unke digits ka sum ke hisaab se ascending order mein sort kare.
+    Dhyan do: agar kuch items ke digits ka sum similar ho, 
+    toh unhe original list ke index ke basis par order karo.
 
     Jaise ki:
     >>> order_by_points([1, 11, -1, -11, -12]) == [-1, -11, 1, -12, 11]
