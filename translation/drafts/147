@@ -1,6 +1,6 @@
 """
     You are given a positive integer n. You have to create an integer array a of length n.
-        For each i (0 ≤ i ≤ n-1), the value of a[i] = (i+1) * (i+1) - i.
+        For each i (1 ≤ i ≤ n), the value of a[i] = i * i - i + 1.
         Return the number of triples (a[i], a[j], a[k]) of a where i < j < k, 
     and a[i] + a[j] + a[k] is a multiple of 3.
 
@@ -14,7 +14,7 @@
 
 """
 Aapko ek positive integer n diya gaya hai. Aapko ek integer array a banani hai jiski length n ho.
-    Har i (0 ≤ i ≤ n-1) ke liye, a[i] ka value hoga (i+1) * (i+1) - i.
+    Har i (1 ≤ i ≤ n) ke liye, a[i] ka value hoga i * i - i + 1.
     Return karo triples (a[i], a[j], a[k]) ka number jahan a[i] + a[j] + a[k] 3 ka multiple ho aur i < j < k ho.
 
     Udaharan :
