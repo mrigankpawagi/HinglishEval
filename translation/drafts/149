@@ -14,13 +14,13 @@
     """
 
 """
-    Ek function likho jo strings ki list ko parameter mein accept karta hai,
+Ek function likho jo strings ki list ko parameter mein accept karta hai,
     usme se odd lengths wale strings ko delete karta hai,
     aur resulted list ko sorted order mein return karta hai,
     List hamesha strings ki list hoti hai aur kabhi numbers ki array nahi hoti,
     aur usme duplicates ho sakte hain.
     List ka order har word ki length ke hisaab se ascending hona chahiye, aur aapko
-    us rule ke hisaab se list ko sort kar ke return karna chahiye.
+    us rule ke hisaab se sorted list ko return karna chahiye.
     Agar do words ki length same ho, to list ko alphabetically sort karo.
     Function ko sorted order mein strings ki list return karni chahiye.
     Aap maan sakte ho ki sabhi words ki length baraabar hogi.

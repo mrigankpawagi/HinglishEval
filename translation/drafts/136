@@ -11,7 +11,7 @@
     """
 
 """
-Ek function banao jo ek tuple (a, b) return kare, jahan 'a' negative integers ka sabse bada hai, aur 'b' positive integers ka sabse chota hai us list mein.
+Ek function banao jo ek tuple (a, b) return kare, jahan 'a' negative integers ka sabse bada hai, aur 'b' positive integers ka sabse chota hai list mein.
     Agar koi negative ya positive integers nahi hai, to None return karo.
 
     Udaharan:

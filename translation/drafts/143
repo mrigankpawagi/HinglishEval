@@ -19,9 +19,9 @@
     """
 
 """
-    Aapko ek string di gayi hai jo ek sentence ko represent karti hai.
-    Sentence mein kuch words hote hain jo space se separate hote hain,
-    aur aapko ek string return karni hai jinme original sentence ke us words ko contain karti hai,
+Aapko ek string di gayi hai jo ek sentence ko represent karti hai,
+    sentence mein kuch words hote hain jo space se separated hote hain,
+    aur aapko ek string return karni hai jo original sentence ke un words ko contain karti hai,
     jinki lengths prime numbers hain,
     nayi string mein words ka order di gayi string ke jaisa hona chahiye.
 
@@ -33,7 +33,7 @@
         Input: sentence = "lets go for swimming"
         Output: "go for"
 
-    Niyam:
+    Constraints:
         * 1 <= len(sentence) <= 100
         * sentence sirf letters contain karti hai
 
