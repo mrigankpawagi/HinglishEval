@@ -22,7 +22,7 @@
     """
 
 """
-Ek positive integer n diya gaya hai, return karo ek tuple jisme even aur odd integer palindromes ki sankhya ho jo range(1, n) ke andar aate hain, inclusive.
+Ek positive integer n diye jane par ek tuple return karo jisme un even aur odd integer palindromes ki sankhya ho jo range(1, n), inclusive, mein aate hai.
 
     Udaharan 1:
 
@@ -40,6 +40,6 @@ Ek positive integer n diya gaya hai, return karo ek tuple jisme even aur odd int
 
     Dhyan de:
         1. 1 <= n <= 10^3
-        2. returned tuple me even aur odd integer palindromes ki sankhya kramashah hoti hai.
+        2. returned tuple mei even aur odd integer palindromes respetively ki sankhya hoti hai.
 
 """
