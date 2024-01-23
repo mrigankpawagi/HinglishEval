@@ -10,8 +10,7 @@
     """
 
 """
-Is Kata mein, aapko ek array ko sort karna hai jo non-negative integers ka hoga. 
-   Sorting binary representation mein ones ki sankhya ke hisaab se ascending order mein hoga.
+Is Kata mein, aapko ek non-negative integers ki array ko sort karna hai unke binary representation mein ones ki sankhya ke hisaab se ascending order mein.
     Agar ones ki sankhya same ho, toh decimal value ke hisab se sort karo.
 
     Isko aise implement karna hai:

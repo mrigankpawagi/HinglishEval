@@ -24,8 +24,7 @@
     """
 
 """
-Integers ka ek array arr aur ek positive integer k diya gaya hai, return karo ek sorted list jiski
-    lambai k ho aur jiski elements arr ke maximum k numbers hai.
+Integers ka ek array arr aur ek positive integer k diye jane par ek sorted list return karo jiski lambai k ho aur jiske elements arr ke maximum k numbers hai.
 
     Example 1:
 

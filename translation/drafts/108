@@ -9,9 +9,8 @@
     """
 
 """
-Ek function likho count_nums jo ek array of integers leta hai aur return karta hai
-    un elements ki sankhya jinka digits ka sum 0 se badha hota hai.
-    Agar koi element negative hai, to uska pehla signed digit negative hoga:
+Ek function count_nums likho jo ek array of integers leta ho aur un elements ki sankhya return karta hi jinke digits ka sum > 0 hai.
+    Agar koi number negative hai, to uska pehla signed digit negative hoga:
     jaise ki -123 ke signed digits honge -1, 2, aur 3.
     >>> count_nums([]) == 0
     >>> count_nums([-1, 11, -11]) == 1
