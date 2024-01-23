@@ -1,5 +1,6 @@
 import json
 
+
 def extract_prompt_from_file(file_path):
     with open(file_path, 'r') as file:
         content = file.read()
@@ -7,7 +8,8 @@ def extract_prompt_from_file(file_path):
     # Split the content using triple double quotes
     parts = content.split('"""')
 
-    return '"""\n    ' + parts[3] + '\n    """'
+    return '"""\n    ' + parts[3].strip() + '\n    """'
+
 
 def hinglish_json():
 
@@ -19,19 +21,27 @@ def hinglish_json():
         data = json.load(json_file)
 
     # modify the data with the hinglish prompts
-    for item in data:
+    new_data = []
+    for item in data:        
         i = item['task_id'].split('/')[1]
-        prompt = extract_prompt_from_file(f'translation/drafts/{i}') # original prompt
+        prompt = extract_prompt_from_file(f'drafts/{i}') # original prompt
         
         prev_prompt = item['prompt'] # changing only the docstring not the function signature
         
         entry_point = item['entry_point']
-        
-        index = prev_prompt.index('"""', prev_prompt.index(entry_point))
+
+        if '"""' in prev_prompt:
+            index = prev_prompt.index('"""', prev_prompt.index(entry_point))
+        elif "'''" in prev_prompt:
+            index = prev_prompt.index("'''", prev_prompt.index(entry_point))
 
         #overwriting the orginal prompt. also if the new docstring is longer than the slice it isnt an issue as the string length is changed in-place
-        data[i]['prompt'][index:] = prompt
+        item['prompt'] = item['prompt'][:index] + prompt
+        
+        new_data.append(item)
 
     #write the new data to the json file
     with open("../HinglishEval.json", 'w') as json_file:
-        json.dump(data, json_file, indent=2)
+        json.dump(data, json_file)
+
+hinglish_json()
