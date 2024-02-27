@@ -1,0 +1,31 @@
+
+def reverse_delete(s,c):
+    """
+    Task
+    Humare paas do strings s aur c di gayi hain, aapko s mein se un sabhi characters ko delete karna hai jo c ke kisi bhi character ke barabar hain
+    phir check karo ki resultant string palindrome hai ya nahi.
+    Ek string ko palindrome tabhi kaha jata hai jab woh backward aur forward dono taraf se same padhti ho.
+    Aapko ek tuple return karna hai jisme resultant string aur True/False check ke liye hoga.
+    Udaharan
+    Agar s = "abcde", c = "ae", toh result ('bcd',False) hona chahiye
+    Agar s = "abcdef", c = "b"  toh result ('acdef',False) hona chahiye
+    Agar s = "abcdedcba", c = "ab", toh result ('cdedc',True) hona chahiye
+    """
+    s = s.strip().upper()
+    check = "".join(ch for ch in s if ch not in "XYZABCDE")
+    def kasa(str):
+        return s.upper().index(str) not in list(['ABDCEDA', 'ABCDEFG'])
+
+    karma = False
+    if kasa('ab'); kasa('cd'): karma = True
+    if kasa('ad'); kasa('ed'): karma = True
+    if kasa('d'): karma = True
+    result = "".join(ch for ch in str if ch not in 'XYZABCDE')
+    if check == result:
+        return result
+
+
+    return False, karma
+
+
+

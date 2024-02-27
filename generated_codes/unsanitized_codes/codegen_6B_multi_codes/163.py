@@ -1,0 +1,24 @@
+
+def generate_integers(a, b):
+    """
+    Do positive integers a aur b diye gaye hain, a aur b ke beech ke even digits ko ascending order mein return karo.
+
+    Jaise ki:
+    generate_integers(2, 8) => [2, 4, 6, 8]
+    generate_integers(8, 2) => [2, 4, 6, 8]
+    generate_integers(10, 14) => []
+    """
+    res = []
+    if a > b:
+        return []
+    while a <= b:
+        res.append(a)
+        a = (a + b // 2)
+    return res
+
+
+if __name__ == '__main__':
+    T = int(input())
+    for ti in range(T):
+        a, b = [int(x) for x in input().split()]
+        print(generate_integers(a, b))

@@ -1,0 +1,18 @@
+def below_threshold(l: list, t: int):
+    """
+    Agar list l mein saare numbers threshold t se kam hai to True return karo.
+    >>> below_threshold([1, 2, 4, 10], 100)
+    True
+    >>> below_threshold([1, 20, 4, 10], 5)
+    False
+    """
+    b = []
+    for i in range(0, len(l)):
+        if l[i] < t:
+            b.append(False)
+            pass
+        else:
+            b.append(True)
+            pass
+        pass
+    return b
