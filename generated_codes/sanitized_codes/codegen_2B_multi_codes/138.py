@@ -1,0 +1,18 @@
+
+def is_equal_to_sum_even(n):
+    """
+    Evaluate karo ki diya gaya number n kya exactly 4 positive even numbers ka sum ho sakta hai
+    Udaharan
+    is_equal_to_sum_even(4) == False
+    is_equal_to_sum_even(6) == False
+    is_equal_to_sum_even(8) == True
+    """
+    if n > 0:
+        for i in xrange(n, 0, -1):
+            if is_even(i) and is_all_positive(i):
+                return True
+            else:
+                return False
+
+    else:
+        return False

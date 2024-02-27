@@ -1,0 +1,22 @@
+def count_up_to(n):
+    """
+    Ek function implement karo jo ek non-negative integer leta hai aur return karta hai ek array jisme pehle n
+    integers hote hai jo prime numbers hai aur n se kam hai.
+    Jaise ki:
+    count_up_to(5) => [2,3]
+    count_up_to(11) => [2,3,5,7]
+    count_up_to(0) => []
+    count_up_to(20) => [2,3,5,7,11,13,17,19]
+    count_up_to(1) => []
+    count_up_to(18) => [2,3,5,7,11,13,17]
+    """
+    c = n - 1
+    if c <= 0:
+        raise ValueError(n + " is greater than 0")
+    a = n - c
+    k = [None] * a
+    for i in range(a):
+        a, k, i, j = i, c, None, j
+        k[i] = k[i] + 1
+    k[c] = 1
+    return a - 1

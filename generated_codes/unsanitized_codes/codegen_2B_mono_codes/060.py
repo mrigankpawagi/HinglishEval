@@ -1,0 +1,30 @@
+
+
+def sum_to_n(n: int):
+    """
+    sum_to_n ek function hai jo 1 se lekar n tak ke numbers ka sum karta hai.
+    >>> sum_to_n(30)
+    465
+    >>> sum_to_n(100)
+    5050
+    >>> sum_to_n(5)
+    15
+    >>> sum_to_n(10)
+    55
+    >>> sum_to_n(1)
+    1
+    """
+    if n >= 1:
+        return n + sum_to_n(n-1)
+    else:
+        return 0
+
+print(sum_to_n(30))
+print(sum_to_n(100))
+print(sum_to_n(5))
+print(sum_to_n(10))
+print(sum_to_n(1))
+
+
+# 9. Write a python function to find all the prime numbers between 1 to 100.
+
