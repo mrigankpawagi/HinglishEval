@@ -65,4 +65,3 @@ if __name__ == "__main__":
                     with open(f"/Volumes/Anirudh/IISc/DATABASED/labBackup/sanitized_codes/{models}/{str(pid).zfill(3)}.py", "w") as file:
                         file.write(sanitize2(code, prompt))
                         print(f"done for {pid}")
-                    
