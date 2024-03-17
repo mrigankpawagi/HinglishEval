@@ -4,6 +4,9 @@ Are our Large Language Models good at code-generation when prompted in native la
 ## Prompting in Hinglish
 We used GPT-4 to translate prompts in HumanEval to _Hinglish_ and manually verified and fixed these translations. The new dataset, __HinglishEval__ is available as a JSON file (`HinglishEval.json`) in the repository.
 
+### Why Hinglish?
+...
+
 ## Results
 We evaluated 18 models on the HinglishEval dataset, at temperature 0 (greedy decoding).
 
