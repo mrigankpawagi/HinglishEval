@@ -2,7 +2,7 @@
 Are our Large Language Models good at code-generation when prompted in native languages?
 
 ## Prompting in Hinglish
-We used GPT-4 to translate prompts in HumanEval to _Hinglish_ and manually verified and fixed these translations. Our benchmark, __HinglishEval__ is available as a JSON file (`HinglishEval.json`) in this repository.
+We used GPT-4 to translate prompts in OpenAI's [HumanEval Benchmark](https://github.com/openai/human-eval) to _Hinglish_ and manually verified and fixed these translations. Our benchmark, __HinglishEval__ is available as a JSON file (`HinglishEval.json`) in this repository.
 
 ### Why Hinglish?
 Hindi is one of the most widely spoken languages in the world, and the most widely spoen in India. A majority of the population in India does not speak English as their first language, and therefore language models that can understand prompts in native languages are important for wider accessibility. Hinglish is a blend of Hindi and English, with frequent usage of English words in sentences with standard Hindi grammar. This is not representative of everyday spoken Hindi for most people, but is rather common in coversations involving technical language, especially in the context of programming.
