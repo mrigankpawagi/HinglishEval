@@ -21,7 +21,7 @@ We evaluated 18 models on the HinglishEval dataset, at temperature 0 (greedy dec
 | Codegen 6B Mono | 15.24 |
 | Codegen 2B Mono | 9.76 |
 | Codegen 6B Multi | 8.54 |
-| Santacoder | 6.71 |
+| Santacoder 1.1B | 6.71 |
 | Codegen-2 1B | 4.88 |
 | Codegen 6B NL | 3.66 |
 | Codegen 350M Mono | 3.05 |
