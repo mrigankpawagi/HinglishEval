@@ -29,3 +29,4 @@ def irt_ranking(data, models):
 
     # Return the ranking of the models based on their scores.
     return sorted(model_scores, key=lambda x: x[1], reverse=True)
+
