@@ -15,37 +15,31 @@ def prompt_output(prompt, words):
     return tokenizer.decode(generated_ids[0], skip_special_tokens=True)
 
 
-def sanitize(completion, prompt):
-    generated = completion[len(prompt) :]
-    lines = generated.split("\n")
-    final_lines = []
-    for line in lines:
-        if line.strip() and line[0].strip():
-            break
-        final_lines.append(line)
-
-    return prompt + "\n".join(final_lines)
-
-
 if __name__ == "__main__":
 
     path_humaneval = (
         "/home/admin/AnirudhGupta/MultilingualBenchmarking_DBD/HinglishEval.json"
     )
 
-    tokenizer = AutoTokenizer.from_pretrained("NinedayWang/PolyCoder-0.4B")
-    model = AutoModelForCausalLM.from_pretrained("NinedayWang/PolyCoder-0.4B")
+    try:
+        os.mkdir(
+            "/home/admin/AnirudhGupta/MultilingualBenchmarking_DBD/codegen_2B_multi_codes"
+        )
+    except:
+        pass
+
+    tokenizer = AutoTokenizer.from_pretrained("Salesforce/codegen-2B-multi")
+    model = AutoModelForCausalLM.from_pretrained("Salesforce/codegen-2B-multi")
 
     with open(path_humaneval) as f:
         data = json.load(f)
-        # for pid in [10, 32, 38, 50]:
-        for pid in range(len(data)):
+        # for pid in [10, 32, 38, 50]: These pids are special. Take care of them seperately
+        for pid in range(164):
             prompt = data[pid]["prompt"]
             with open(
-                f"/home/admin/AnirudhGupta/MultilingualBenchmarking_DBD/polycoder_0.4B_codes/{str(pid).zfill(3)}.py",
+                f"/home/admin/AnirudhGupta/MultilingualBenchmarking_DBD/codegen_2B_multi_codes/{str(pid).zfill(3)}.py",
                 "w",
             ) as file:
-                completion = prompt_output(prompt, 512)
-                file.write(sanitize(completion, prompt))
+                file.write(prompt_output(prompt, 512))
                 print(f"done for {pid}")
 
