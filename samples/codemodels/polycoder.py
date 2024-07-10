@@ -29,21 +29,44 @@ def sanitize(completion, prompt):
 
 if __name__ == "__main__":
 
-    path_humaneval = (
-        "/home/admin/AnirudhGupta/MultilingualBenchmarking_DBD/HinglishEval.json"
-    )
+    path_humaneval = "/path/to/HinglishEval.json"
 
     tokenizer = AutoTokenizer.from_pretrained("NinedayWang/PolyCoder-0.4B")
     model = AutoModelForCausalLM.from_pretrained("NinedayWang/PolyCoder-0.4B")
 
     with open(path_humaneval) as f:
         data = json.load(f)
-        # for pid in [10, 32, 38, 50]:
-        for pid in range(len(data)):
+        for pid in [10, 32, 38, 50]:
             prompt = data[pid]["prompt"]
             with open(
-                f"/home/admin/AnirudhGupta/MultilingualBenchmarking_DBD/polycoder_0.4B_codes/{str(pid).zfill(3)}.py",
-                "w",
+                f"/path/to/polycoder_0.4B_codes/{str(pid).zfill(3)}.py", "w"
+            ) as file:
+                completion = prompt_output(prompt, 512)
+                file.write(sanitize(completion, prompt))
+                print(f"done for {pid}")
+    print("meow")
+    tokenizer = AutoTokenizer.from_pretrained("NinedayWang/PolyCoder-2.7B")
+    model = AutoModelForCausalLM.from_pretrained("NinedayWang/PolyCoder-2.7B")
+
+    with open(path_humaneval) as f:
+        data = json.load(f)
+        for pid in [10, 32, 38, 50]:
+            prompt = data[pid]["prompt"]
+            with open(
+                f"/path/to/polycoder_2.7B_codes/{str(pid).zfill(3)}.py", "w"
+            ) as file:
+                completion = prompt_output(prompt, 512)
+                file.write(sanitize(completion, prompt))
+                print(f"done for {pid}")
+    tokenizer = AutoTokenizer.from_pretrained("NinedayWang/PolyCoder-160M")
+    model = AutoModelForCausalLM.from_pretrained("NinedayWang/PolyCoder-160M")
+
+    with open(path_humaneval) as f:
+        data = json.load(f)
+        for pid in [10, 32, 38, 50]:
+            prompt = data[pid]["prompt"]
+            with open(
+                f"/path/to/polycoder_160M_codes/{str(pid).zfill(3)}.py", "w"
             ) as file:
                 completion = prompt_output(prompt, 512)
                 file.write(sanitize(completion, prompt))

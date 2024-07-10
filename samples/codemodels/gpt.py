@@ -7,7 +7,7 @@ openai.api_key = "<API-KEY>"
 
 def gpt(docstr):
     response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
+        model="gpt-3.5-turbo",  # Or gpt-4
         messages=[
             {
                 "role": "system",
@@ -28,19 +28,15 @@ def gpt(docstr):
 
 
 if __name__ == "__main__":
-    path_humaneval = (
-        "/home/admin/AnirudhGupta/MultilingualBenchmarking_DBD/HinglishEval.json"
-    )
+    path_humaneval = "/path/to/HinglishEval.json"
 
     with open(path_humaneval) as f:
         data = json.load(f)
         for pid in [10, 32, 38, 50]:
             prompt = data[pid]["prompt"]
             with open(
-                f"/home/admin/AnirudhGupta/MultilingualBenchmarking_DBD/gpt_3.5_turbo_codes/{str(pid).zfill(3)}.py",
+                f"/path/to/gpt_3.5_turbo_codes/{str(pid).zfill(3)}.py",
                 "w",
             ) as file:
                 file.write(gpt(prompt))
                 print(f"done for {pid}")
-print("meow")
-

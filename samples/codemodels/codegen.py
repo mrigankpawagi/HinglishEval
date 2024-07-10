@@ -1,6 +1,5 @@
 import json
 import os
-import threading
 
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
@@ -17,14 +16,10 @@ def prompt_output(prompt, words):
 
 if __name__ == "__main__":
 
-    path_humaneval = (
-        "/home/admin/AnirudhGupta/MultilingualBenchmarking_DBD/HinglishEval.json"
-    )
+    path_humaneval = "/path/to/HinglishEval.json"
 
     try:
-        os.mkdir(
-            "/home/admin/AnirudhGupta/MultilingualBenchmarking_DBD/codegen_2B_multi_codes"
-        )
+        os.mkdir("/path/to/codegen_2B_multi_codes")
     except:
         pass
 
@@ -37,9 +32,8 @@ if __name__ == "__main__":
         for pid in range(164):
             prompt = data[pid]["prompt"]
             with open(
-                f"/home/admin/AnirudhGupta/MultilingualBenchmarking_DBD/codegen_2B_multi_codes/{str(pid).zfill(3)}.py",
+                f"/path/to/codegen_2B_multi_codes/{str(pid).zfill(3)}.py",
                 "w",
             ) as file:
                 file.write(prompt_output(prompt, 512))
                 print(f"done for {pid}")
-
