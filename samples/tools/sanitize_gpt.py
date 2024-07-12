@@ -18,13 +18,13 @@ def sanitize2(completion, entry_point):
 if __name__ == "__main__":
     import os, json
     models=["gpt_4_codes", "gpt_3.5_turbo_codes"]
-    path_humaneval="/Volumes/Anirudh/IISc/DATABASED/labBackup/MultilingualBenchmarking_DBD/HinglishEval.json"  
+    path_humaneval="/path/to/MultilingualBenchmarking_DBD/HinglishEval.json"  
     for models in models: 
         try:
-            os.mkdir(f"/Volumes/Anirudh/IISc/DATABASED/labBackup/generated_codes/sanitized_codes/{models}")
+            os.mkdir(f"/path/to/generated_codes/sanitized_codes/{models}")
         except:
             pass
-        path_codegen = f"/Volumes/Anirudh/IISc/DATABASED/labBackup/MultilingualBenchmarking_DBD/{models}"
+        path_codegen = f"/path/to/MultilingualBenchmarking_DBD/{models}"
             
         with open(path_humaneval) as f:
             data = json.load(f)
@@ -32,6 +32,6 @@ if __name__ == "__main__":
                 entry_point=data[pid]["entry_point"]
                 with open(f"{path_codegen}/{str(pid).zfill(3)}.py") as file:
                     code = file.read()
-                with open(f"/Volumes/Anirudh/IISc/DATABASED/labBackup/generated_codes/sanitized_codes/{models}/{str(pid).zfill(3)}.py", "w") as file:
+                with open(f"/path/to/generated_codes/sanitized_codes/{models}/{str(pid).zfill(3)}.py", "w") as file:
                     file.write(sanitize2(code, entry_point))
                     print(f"done for {pid}")

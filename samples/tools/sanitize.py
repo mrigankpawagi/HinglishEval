@@ -12,10 +12,13 @@ def sanitize1(completion, entry_point):
 
 def logfile(models):
     # used after every file has log.txt generated from black . &> log.txt in terminal
-    with open (f"/Volumes/Anirudh/IISc/DATABASED/labBackup/MultilingualBenchmarking_DBD/{models}/log.txt") as f:
+    with open (f"/path/to/samples/English/sanitized/{models}/log.txt", "w") as f:
+        pass
+ 
+    with open (f"/path/to/samples/English/sanitized/{models}/log.txt", "r") as f:
         
         # read each line and search for a 3 digit number
-        file= f.readlines()
+        file= f.read()
         error=[]
         for line in file:
             ind= line.find("codes/")
@@ -38,14 +41,14 @@ def sanitize2(completion, prompt):
 
 if __name__ == "__main__":
     import os, json
-    models=["codegen_6B_nl_codes", "codegen_6B_mono_codes", "codegen_6B_multi_codes", "codegen_2B_mono_codes", "codegen_2B_multi_codes", "codegen_2B_nl_codes", "codegen_350M_nl_codes", "codegen_350M_mono_codes", "codegen_350M_multi_codes", "codegen2_1B_codes"]
-    path_humaneval="/Volumes/Anirudh/IISc/DATABASED/labBackup/MultilingualBenchmarking_DBD/HinglishEval.json"  
+    models=["codegen_6B_nl", "codegen_6B_mono", "codegen_6B_multi", "codegen_2B_mono", "codegen_2B_multi", "codegen_2B_nl", "codegen_350M_nl", "codegen_350M_mono", "codegen_350M_multi", "codegen2_1B", "gemma_2B", "gemma_7B"]
+    path_humaneval="/path/to/HumanEval.json"  
     for models in models: 
         try:
-            os.mkdir(f"/Volumes/Anirudh/IISc/DATABASED/labBackup/sanitized_codes/{models}")
+            os.mkdir(f"/path/to/samples/English/sanitized/{models}")
         except:
             pass
-        path_codegen = f"/Volumes/Anirudh/IISc/DATABASED/labBackup/MultilingualBenchmarking_DBD/{models}"
+        path_codegen = f"/path/to/samples/English/unsanitized/{models}"
             
         with open(path_humaneval) as f:
             data = json.load(f)
@@ -56,12 +59,12 @@ if __name__ == "__main__":
                 if pid not in error:
                     with open(f"{path_codegen}/{str(pid).zfill(3)}.py") as file:
                         code = file.read()
-                    with open(f"/Volumes/Anirudh/IISc/DATABASED/labBackup/sanitized_codes/{models}/{str(pid).zfill(3)}.py", "w") as file:
+                    with open(f"/path/to/samples/English/sanitized/{models}/{str(pid).zfill(3)}.py", "w") as file:
                         file.write(sanitize1(code, entry_point))
                         print(f"done for {pid}")
                 else:
                     with open(f"{path_codegen}/{str(pid).zfill(3)}.py") as file:
                         code = file.read()
-                    with open(f"/Volumes/Anirudh/IISc/DATABASED/labBackup/sanitized_codes/{models}/{str(pid).zfill(3)}.py", "w") as file:
+                    with open(f"/path/to/samples/English/sanitized/{models}/{str(pid).zfill(3)}.py", "w") as file:
                         file.write(sanitize2(code, prompt))
                         print(f"done for {pid}")
