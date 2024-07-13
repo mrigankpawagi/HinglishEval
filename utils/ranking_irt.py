@@ -1,13 +1,13 @@
 import numpy as np
 from girth import twopl_mml
 
-def irt_ranking(data, models):
+def irt_ranking(data : list, models : list) -> list:
     '''
     This function ranks the models based on their scores calculated using the 2PL model.
 
     :param data: A 2D numpy array where each row represents a model and each column represents a question.
                 data[i][j] = 1 if question i is answered by model j correctly, 0 otherwise.
-    :param models: A list of strings where each string represents a model.
+    :param models: A list of strings where each string represents a model in the same order as is present in the data.
     '''
     
     result = twopl_mml(data)
