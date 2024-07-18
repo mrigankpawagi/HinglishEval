@@ -17,21 +17,27 @@ def sanitize2(completion, entry_point):
 
 if __name__ == "__main__":
     import os, json
-    models=["gpt_4_codes", "gpt_3.5_turbo_codes"]
-    path_humaneval="/Volumes/Anirudh/IISc/DATABASED/labBackup/MultilingualBenchmarking_DBD/HinglishEval.json"  
-    for models in models: 
+    model_list = ["gpt_4_codes", "gpt_3.5_turbo_codes"]
+    base_dir = os.path.dirname(__file__)
+    path_humaneval = os.path.join(base_dir, "HinglishEval.json")
+     
+    for model in model_list:
+         
+        sanitized_codes_dir = os.path.join(base_dir, "samples", "Hinglish", "sanitized", model)
         try:
-            os.mkdir(f"/Volumes/Anirudh/IISc/DATABASED/labBackup/generated_codes/sanitized_codes/{models}")
+            os.makedirs(sanitized_codes_dir, exist_ok=True)
         except:
-            pass
-        path_codegen = f"/Volumes/Anirudh/IISc/DATABASED/labBackup/MultilingualBenchmarking_DBD/{models}"
-            
+            pass 
+
+        path_codegen = os.path.join(base_dir, model)
         with open(path_humaneval) as f:
             data = json.load(f)
             for pid in range(len(data)):
                 entry_point=data[pid]["entry_point"]
                 with open(f"{path_codegen}/{str(pid).zfill(3)}.py") as file:
                     code = file.read()
-                with open(f"/Volumes/Anirudh/IISc/DATABASED/labBackup/generated_codes/sanitized_codes/{models}/{str(pid).zfill(3)}.py", "w") as file:
+                    
+                sanitized_file_path = os.path.join(sanitized_codes_dir, f"{str(pid).zfill(3)}.py")
+                with open(sanitized_file_path, "w") as file:
                     file.write(sanitize2(code, entry_point))
                     print(f"done for {pid}")
