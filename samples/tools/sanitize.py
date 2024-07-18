@@ -11,20 +11,20 @@ def sanitize1(completion, entry_point):
     return completion[: x + 1] + "\n".join([x for x in final_lines if x.strip()])
 
 
-def logfile(models):
-    # used after every file has log.txt generated from black . &> log.txt in terminal
-    with open(f"/path/to/samples/English/sanitized/{models}/log.txt", "r") as f:
-
-        # read each line and search for a 3 digit number
-        file = f.readlines()
+def logfile(model):
+    # Adjusted to dynamically construct the path using __file__
+    base_dir = os.path.dirname(__file__)
+    log_path = os.path.join(base_dir, "samples", "English", "sanitized", model, "log.txt")
+    
+    with open(log_path, "r") as f:
+        file_lines = f.readlines()
         error = []
-        for line in file:
+        for line in file_lines:
             ind = line.find("codes/")
-            num = line[ind + 6 : ind + 9]
-            print(num)
-            if not num.isdigit():
-                break
-            error.append(int(num))
+            if ind != -1:  # Found the substring "codes/"
+                num = line[ind + 6: ind + 9]
+                if num.isdigit():
+                    error.append(int(num))
     return error
 
 
@@ -40,52 +40,38 @@ def sanitize2(completion, prompt):
 
 
 if __name__ == "__main__":
-    import json
-    import os
-
-    models = [
-        "codegen_6B_nl",
-        "codegen_6B_mono",
-        "codegen_6B_multi",
-        "codegen_2B_mono",
-        "codegen_2B_multi",
-        "codegen_2B_nl",
-        "codegen_350M_nl",
-        "codegen_350M_mono",
-        "codegen_350M_multi",
-        "codegen2_1B",
-        "gemma_2B",
-        "gemma_7B",
-    ]
-    path_humaneval = "/path/to/HumanEval.json"
-    for models in models:
+    import os, json
+    models = ["gpt_4_codes", "gpt_3.5_turbo_codes"]
+    base_dir = os.path.dirname(__file__)
+    path_humaneval = os.path.join(base_dir, "HinglishEval.json")
+    
+    for model in models:
+        sanitized_codes_dir = os.path.join(base_dir, "samples", "Hinglish", "sanitized", model)
         try:
-            os.mkdir(f"/path/to/samples/English/sanitized/{models}")
+            os.makedirs(sanitized_codes_dir, exist_ok=True)
         except:
             pass
-        path_codegen = f"/path/to/samples/English/unsanitized/{models}"
 
         with open(path_humaneval) as f:
             data = json.load(f)
-            error = logfile(models)
+            error = logfile(model)
             for pid in range(len(data)):
                 prompt = data[pid]["prompt"]
                 entry_point = data[pid]["entry_point"]
+                path_codegen = os.path.join(base_dir, model)
+                sanitized_file_path = os.path.join(sanitized_codes_dir, f"{str(pid).zfill(3)}.py")
+                
                 if pid not in error:
-                    with open(f"{path_codegen}/{str(pid).zfill(3)}.py") as file:
+                    code_file_path = os.path.join(path_codegen, f"{str(pid).zfill(3)}.py")
+                    with open(code_file_path) as file:
                         code = file.read()
-                    with open(
-                        f"/path/to/samples/English/sanitized/{models}/{str(pid).zfill(3)}.py",
-                        "w",
-                    ) as file:
+                    with open(sanitized_file_path, "w") as file:
                         file.write(sanitize1(code, entry_point))
                         print(f"done for {pid}")
                 else:
-                    with open(f"{path_codegen}/{str(pid).zfill(3)}.py") as file:
+                    code_file_path = os.path.join(path_codegen, f"{str(pid).zfill(3)}.py")
+                    with open(code_file_path) as file:
                         code = file.read()
-                    with open(
-                        f"/path/to/samples/English/sanitized/{models}/{str(pid).zfill(3)}.py",
-                        "w",
-                    ) as file:
+                    with open(sanitized_file_path, "w") as file:
                         file.write(sanitize2(code, prompt))
-                        print(f"done for {pid}")
+                        print(f"done for {pid}")    

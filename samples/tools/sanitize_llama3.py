@@ -25,46 +25,49 @@ if __name__ == "__main__":
     import json
     import os
 
-    model = ["llama3_70B"]
-    path_humaneval = "/path/to/HinglishEval.json"
-    for models in model:
+    model_list = ["llama3_70B"]
+    base_dir = os.path.dirname(__file__)
+    path_humaneval = os.path.join(base_dir, "HinglishEval.json")
+     
+    for model in model_list:
+         
+        sanitized_codes_dir = os.path.join(base_dir, "samples", "Hinglish", "sanitized", model)
         try:
-            os.mkdir(f"/path/to/generated_codes/sanitized/Hinglish/{models}")
-        except Exception as e:
-            print("Could not make", e)
-        path_codegen = f"/path/to/generated_codes/unsanitized/Hinglish/{models}"
+            os.makedirs(sanitized_codes_dir, exist_ok=True)
+        except:
+            pass 
 
+        path_codegen = os.path.join(base_dir, model)
         with open(path_humaneval) as f:
             data = json.load(f)
             for pid in range(len(data)):
-                entry_point = data[pid]["entry_point"]
+                entry_point=data[pid]["entry_point"]
                 with open(f"{path_codegen}/{str(pid).zfill(3)}.py") as file:
                     code = file.read()
-                with open(
-                    f"/path/to/generated_codes/sanitized/Hinglish/{models}/{str(pid).zfill(3)}.py",
-                    "w",
-                ) as file:
+                    
+                sanitized_file_path = os.path.join(sanitized_codes_dir, f"{str(pid).zfill(3)}.py")
+                with open(sanitized_file_path, "w") as file:
                     file.write(sanitize2(code, entry_point))
                     print(f"done for {pid}")
 
-    path_humaneval = "/path/to/HumanEval.json"
-    for models in model:
+    path_humaneval = os.path.join(base_dir, "HumanEval.json")
+ 
+    for model in model_list:        
+        sanitized_codes_dir = os.path.join(base_dir, "samples", "English", "sanitized", model)
         try:
-            os.mkdir(f"/path/to/generated_codes/sanitized/English/{models}")
-        except Exception as e:
-            print("Could not make", e)
+            os.makedirs(sanitized_codes_dir, exist_ok=True)
+        except:
+            pass 
 
-        path_codegen = f"/path/to/generated_codes/unsanitized/English/{models}"
-
+        path_codegen = os.path.join(base_dir, model)
         with open(path_humaneval) as f:
             data = json.load(f)
             for pid in range(len(data)):
-                entry_point = data[pid]["entry_point"]
+                entry_point=data[pid]["entry_point"]
                 with open(f"{path_codegen}/{str(pid).zfill(3)}.py") as file:
                     code = file.read()
-                with open(
-                    f"/path/to/generated_codes/sanitized/English/{models}/{str(pid).zfill(3)}.py",
-                    "w",
-                ) as file:
+                    
+                sanitized_file_path = os.path.join(sanitized_codes_dir, f"{str(pid).zfill(3)}.py")
+                with open(sanitized_file_path, "w") as file:
                     file.write(sanitize2(code, entry_point))
                     print(f"done for {pid}")
