@@ -34,45 +34,29 @@ def llama3(docstr):
 
 
 if __name__ == "__main__":
+    base_dir = os.path.dirname(__file__)
+    path_humaneval_hinglish = os.path.join(base_dir, "HinglishEval.json")
+    path_humaneval_english = os.path.join(base_dir, "HumanEval.json")
 
-    path_humaneval = "/path/to/HinglishEval.json"
+    unsanitized_hinglish_dir = os.path.join(base_dir,"Hinglish", "unsanitized", "llama3")
+    os.makedirs(unsanitized_hinglish_dir, exist_ok=True)
 
-    try:
-        os.mkdir("/path/to/unsanitized/Hinglish/llama3")
-    except:
-        pass
-
-    with open(path_humaneval) as f:
+    with open(path_humaneval_hinglish) as f:
         data = json.load(f)
-        # for pid in [10, 32, 38, 50]: These pids are special. Take care of them seperately
-        for pid in range(59, 164):
+        for pid in range(59, 164):  # Adjusted range for Hinglish
             prompt = data[pid]["prompt"]
-            with open(
-                f"/path/to/unsanitized/Hinglish/llama3/{str(pid).zfill(3)}.py",
-                "w",
-            ) as file:
+            with open(os.path.join(unsanitized_hinglish_dir, f"{str(pid).zfill(3)}.py"), "w") as file:
                 file.write(llama3(prompt))
                 print(f"done for {pid}")
 
-        #   break
+    unsanitized_english_dir = os.path.join(base_dir, "English",  "unsanitized", "llama3")
+    os.makedirs(unsanitized_english_dir, exist_ok=True)
 
-    path_humaneval = "/path/to/HumanEval.json"
-
-    try:
-        os.mkdir("/path/to/unsanitized/English/llama3")
-    except:
-        pass
-
-    with open(path_humaneval) as f:
+    with open(path_humaneval_english) as f:
         data = json.load(f)
-        # for pid in [10, 32, 38, 50]: These pids are special. Take care of them seperately
-        for pid in range(164):
+        for pid in range(164):  # Adjusted range for English
             prompt = data[pid]["prompt"]
-            with open(
-                f"/path/to/unsanitized/English/llama3/{str(pid).zfill(3)}.py",
-                "w",
-            ) as file:
+            with open(os.path.join(unsanitized_english_dir, f"{str(pid).zfill(3)}.py"), "w") as file:
                 file.write(llama3(prompt))
                 print(f"done for {pid}")
 
-    #     break

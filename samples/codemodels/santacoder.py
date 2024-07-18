@@ -32,12 +32,16 @@ def santa_coder(prompt):
 
 
 if __name__ == "__main__":
-    path_humaneval = "/path/to/HinglishEval.json"
+    base_dir = os.path.dirname(__file__)
+    path_humaneval = os.path.join(base_dir, "HinglishEval.json")
+
+    santacoder_codes_dir = os.path.join(base_dir, "santacoder_codes")
+    os.makedirs(santacoder_codes_dir, exist_ok=True)
 
     with open(path_humaneval) as f:
         data = json.load(f)
-        for pid in [10, 32, 38, 50]:
+        for pid in  range (164): # numbers in [10, 32, 38, 50] are special probs
             prompt = data[pid]["prompt"]
-            with open(f"/path/to/santacoder_codes/{str(pid).zfill(3)}.py", "w") as file:
+            with open(os.path.join(santacoder_codes_dir, f"{str(pid).zfill(3)}.py"), "w") as file:
                 file.write(santa_coder(prompt))
                 print(f"done for {pid}")

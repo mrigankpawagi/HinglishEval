@@ -21,22 +21,20 @@ def prompt_output(prompt, words):
 
 
 if __name__ == "__main__":
+    base_dir = os.path.dirname(__file__)
+    path_humaneval = os.path.join(base_dir, "HinglishEval.json")
 
-    path_humaneval = "/path/to/HinglishEval.json"
-
-    try:
-        os.mkdir("/path/to/gemma_7B_codes")
-    except:
-        pass
+    gemma_codes_dir = os.path.join(base_dir, "gemma_7B_codes")
+    os.makedirs(gemma_codes_dir, exist_ok=True)
 
     tokenizer = AutoTokenizer.from_pretrained("google/gemma-7b")
     model = AutoModelForCausalLM.from_pretrained("google/gemma-7b")
 
     with open(path_humaneval) as f:
         data = json.load(f)
-        for pid in range(1, len(data)):
+        for pid in range(1, len(data)):  # Starting from 1 as per original code
             prompt = data[pid]["prompt"]
-            with open(f"/path/to/gemma_7B_codes/{str(pid).zfill(3)}.py", "w") as file:
+            with open(os.path.join(gemma_codes_dir, f"{str(pid).zfill(3)}.py"), "w") as file:
                 file.write(prompt_output(prompt, 512))
                 print(f"done for {pid}")
 

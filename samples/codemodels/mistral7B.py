@@ -34,44 +34,27 @@ def mistral7b(docstr):
 
 
 if __name__ == "__main__":
+    base_dir = os.path.dirname(__file__)
+    path_humaneval_hinglish = os.path.join(base_dir, "HinglishEval.json")
+    unsanitized_hinglish_dir = os.path.join(base_dir, "Hinglish", "unsanitized",  "mistral7b")
+    os.makedirs(unsanitized_hinglish_dir, exist_ok=True)
 
-    path_humaneval = "/path/to/HinglishEval.json"
-
-    try:
-        os.mkdir("/path/to/unsanitized/Hinglish/mistral7b")
-    except:
-        pass
-
-    with open(path_humaneval) as f:
+    with open(path_humaneval_hinglish) as f:
         data = json.load(f)
-        # for pid in [10, 32, 38, 50]: These pids are special. Take care of them seperately
         for pid in range(164):
             prompt = data[pid]["prompt"]
-            with open(
-                f"/path/to/unsanitized/Hinglish/mistral7b/{str(pid).zfill(3)}.py",
-                "w",
-            ) as file:
+            with open(os.path.join(unsanitized_hinglish_dir, f"{str(pid).zfill(3)}.py"), "w") as file:
                 file.write(mistral7b(prompt))
                 print(f"done for {pid}")
 
-        #   break
+    path_humaneval_english = os.path.join(base_dir, "HumanEval.json")
+    unsanitized_english_dir = os.path.join(base_dir, "English", "unsanitized",  "mistral7b")
+    os.makedirs(unsanitized_english_dir, exist_ok=True)
 
-    path_humaneval = "/path/to/HumanEval.json"
-
-    try:
-        os.mkdir("/path/to/unsanitized/English/mistral7b")
-    except:
-        pass
-
-    with open(path_humaneval) as f:
+    with open(path_humaneval_english) as f:
         data = json.load(f)
-        # for pid in [10, 32, 38, 50]: These pids are special. Take care of them seperately
         for pid in range(164):
             prompt = data[pid]["prompt"]
-            with open(
-                f"/path/to/unsanitized/English/mistral7b/{str(pid).zfill(3)}.py",
-                "w",
-            ) as file:
+            with open(os.path.join(unsanitized_english_dir, f"{str(pid).zfill(3)}.py"), "w") as file:
                 file.write(mistral7b(prompt))
                 print(f"done for {pid}")
-    #       break

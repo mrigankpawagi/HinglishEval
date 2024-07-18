@@ -36,7 +36,7 @@ if __name__ == "__main__":
 
     with open(path_humaneval) as f:
         data = json.load(f)
-        for pid in [10, 32, 38, 50]:
+        for pid in range(164): # 10,32,38, 50 are special
             prompt = data[pid]["prompt"]
             with open(
                 f"/path/to/polycoder_0.4B_codes/{str(pid).zfill(3)}.py", "w"
@@ -44,13 +44,13 @@ if __name__ == "__main__":
                 completion = prompt_output(prompt, 512)
                 file.write(sanitize(completion, prompt))
                 print(f"done for {pid}")
-    print("meow")
+
     tokenizer = AutoTokenizer.from_pretrained("NinedayWang/PolyCoder-2.7B")
     model = AutoModelForCausalLM.from_pretrained("NinedayWang/PolyCoder-2.7B")
 
     with open(path_humaneval) as f:
         data = json.load(f)
-        for pid in [10, 32, 38, 50]:
+        for pid in range(164): # 10,32,38, 50 are special
             prompt = data[pid]["prompt"]
             with open(
                 f"/path/to/polycoder_2.7B_codes/{str(pid).zfill(3)}.py", "w"
@@ -63,7 +63,7 @@ if __name__ == "__main__":
 
     with open(path_humaneval) as f:
         data = json.load(f)
-        for pid in [10, 32, 38, 50]:
+        for pid in range(164): # 10,32,38, 50 are special
             prompt = data[pid]["prompt"]
             with open(
                 f"/path/to/polycoder_160M_codes/{str(pid).zfill(3)}.py", "w"

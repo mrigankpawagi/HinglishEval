@@ -1,5 +1,5 @@
 import json
-
+import os
 import openai
 
 openai.api_key = "<API-KEY>"
@@ -26,16 +26,16 @@ def gpt(docstr):
     )
     return response.choices[0].message.content
 
-
 if __name__ == "__main__":
-    path_humaneval = "/path/to/HinglishEval.json"
+    base_dir = os.path.dirname(__file__)
+    path_humaneval = os.path.join(base_dir, "HinglishEval.json")
 
     with open(path_humaneval) as f:
         data = json.load(f)
         for pid in [10, 32, 38, 50]:
             prompt = data[pid]["prompt"]
             with open(
-                f"/path/to/gpt_3.5_turbo_codes/{str(pid).zfill(3)}.py",
+                os.path.join(base_dir, "gpt_3.5_turbo_codes", f"{str(pid).zfill(3)}.py"),
                 "w",
             ) as file:
                 file.write(gpt(prompt))

@@ -15,11 +15,12 @@ def prompt_output(prompt, words):
 
 
 if __name__ == "__main__":
+    base_dir = os.path.dirname(__file__)
+    path_humaneval = os.path.join(base_dir, "HinglishEval.json")
 
-    path_humaneval = "/path/to/HinglishEval.json"
-
+    codegen_dir = os.path.join(base_dir, "codegen_2B_multi_codes")
     try:
-        os.mkdir("/path/to/codegen_2B_multi_codes")
+        os.makedirs(codegen_dir, exist_ok=True)
     except:
         pass
 
@@ -28,11 +29,11 @@ if __name__ == "__main__":
 
     with open(path_humaneval) as f:
         data = json.load(f)
-        # for pid in [10, 32, 38, 50]: These pids are special. Take care of them seperately
+        # for pid in [10, 32, 38, 50]: These pids are special. Take care of them separately
         for pid in range(164):
             prompt = data[pid]["prompt"]
             with open(
-                f"/path/to/codegen_2B_multi_codes/{str(pid).zfill(3)}.py",
+                os.path.join(codegen_dir, f"{str(pid).zfill(3)}.py"),
                 "w",
             ) as file:
                 file.write(prompt_output(prompt, 512))
