@@ -1,50 +1,29 @@
-import numpy as np
-from scipy.optimize import minimize
-from girth import twopl_mml
+from pyirt import irt
+import os
 
-def irt_ranking(data : list, models : list) -> list:
-    '''
-    This function calculates the difficulty and the discrimination parameters of the models using the 2 parameter marginal likelihood model.
-    :param data: A 2D numpy array where each row represents a model and each column represents a question.
-                data[i][j] = 1 if question i is answered by model j correctly, 0 otherwise.
-    :param models: A list of strings where each string represents a model in the same order as is present in the data.
-    '''
+def compute_irt_params(data: list):
+    """
+    This function is used to compute the Item(problem) and User(model) parameters using the IRT approach.
+    :param data: A list of tuples in the format (user_id, item_id, response)
+    user_id - ID of the user.
+    item_id - ID of the item.
+    response - Binary response of the user to the item.
+    """
+    item_param, user_param = irt(data)
+    return item_param, user_param
+
+if __name__ == "__main__":
+    data = []
+    models =[]
+    for model in os.listdir("/samples/sanitized/"):
+        models.append(model)
+        for pid in os.listdir(f"/samples/sanitized/{model}"):
+            with open(f"/samples/sanitized/{model}/{pid}.py", "r") as f:
+                response = irt_matrix[model][pid]
+                data.append((model, pid, response))
     
-    result = twopl_mml(data)
-    discrimination = result['Discrimination']
-    difficulty = result['Difficulty']
-    return discrimination, difficulty
-
-def two_parameter_logistic_model(theta, a, b):
-    """
-    A helper function to calculate the probability of a correct response using the 2PL model.
-    :param theta: The latent ability of the student. (which is to be updated)
-    :param a: The discrimination parameter of the model.
-    :param b: The difficulty parameter of the model.
-    """
-    return 1 / (1 + np.exp(-a * (theta - b)))
-
-def negative_log_likelihood(theta, responses, a_params, b_params):
-    """
-    A helper function to calculate the negative log likelihood, used for the updation of latency(theta) values in the IRT model.
-    :param theta: The latent ability of the student. (which is to be updated)
-    :param responses: A list of binary responses from the student.
-    :param a_params: A list of discrimination parameters of the models.
-    :param b_params: A list of difficulty parameters of the models.
-    """
-    log_likelihood = 0
-    for i in range(len(responses)):
-        prob_correct = two_parameter_logistic_model(theta, a_params[i], b_params[i])
-        log_likelihood += responses[i] * np.log(prob_correct) + (1 - responses[i]) * np.log(1 - prob_correct)
-    return -log_likelihood
-
-def estimate_theta(responses, a_params, b_params):
-    """
-    Updates the theta estimation from an initial value using the negative log likelihood function and the difficulties and discrimination parameters obtained from the 2PL model.
-    :param responses: A list of binary responses from the student.
-    :param a_params: A list of discrimination parameters of the models.
-    :param b_params: A list of difficulty parameters of the models.
-    """
-    initial_guess = 0.0  # Initial guess for theta
-    result = minimize(negative_log_likelihood, initial_guess, args=(responses, a_params, b_params))
-    return result.x[0]
+    item_param, user_param = compute_irt_params(data)
+    print(item_param)
+    print(user_param)
+    # Use the user_param to obtain the latency of the models.
+    # Use the item_param to obtain the difficulty and discriminations of the problems.
