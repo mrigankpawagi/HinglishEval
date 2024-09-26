@@ -1,5 +1,5 @@
 # HinglishEval
-Are our Large Language Models good at code-generation when prompted in native languages?
+Evaluating the Effectiveness of Code-generation Models on Hinglish Prompts
 
 ## Prompting in Hinglish
 We used GPT-4 to translate prompts in OpenAI's [HumanEval Benchmark](https://github.com/openai/human-eval) to _Hinglish_ and manually verified and fixed these translations. Our benchmark, __HinglishEval__ is available as a JSON file (`HinglishEval.json`) in this repository.
@@ -43,10 +43,3 @@ We have publicly released completions generated from 18 models on the prompts in
 
 ### Evaluation of 18 models on HinglishEval
 We evaluated 18 models on the HinglishEval dataset and reported the results in the table above. We report only the Pass@1 metric since the models were evaluated at temperature 0 (greedy decoding). 
-
-## Future Work
-We encourage the community to
-1. Interpret the results of this evaluation
-2. Explore different prompting strategies to improve the performance of models on HinglishEval
-3. Evaluate more models and with different temperature settings, particularly models for native languages
-4. Extend the benchmark to more native languages
