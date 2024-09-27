@@ -36,7 +36,9 @@ if __name__ == "__main__":
                 data.append((model, pid, response))
 
         item_param, user_param = compute_irt_params(data)
-        print(item_param)
-        print(user_param)
+        # print(item_param)
+        # add user_param in json formatted style in a new file, user_param.json
+        with open(f"./irt_ratings/user_param_{lang.lower()}.json", "w") as f:
+            f.write(str(user_param))
     # Use the user_param to obtain the latency of the models.
     # Use the item_param to obtain the difficulty and discriminations of the problems.
