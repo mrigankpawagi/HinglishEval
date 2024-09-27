@@ -1,4 +1,5 @@
 import os
+import csv
 
 from pyirt import irt
 
@@ -36,11 +37,29 @@ if __name__ == "__main__":
                 data.append((model, pid, response))
 
         item_param, user_param = compute_irt_params(data)
-        # print(item_param)
         # add user_param in json formatted style in a new file, user_param.json
-        with open(f"./irt_ratings/user_param_{lang.lower()}.json", "w") as f:
-            f.write(str(user_param))
-        with open(f"./irt_ratings/item_param_{lang.lower()}.json", "w") as f:
-            f.write(str(item_param))
+        csv_data = [["MODEL", "VALUE"]]
+        for model, value in user_param.items():
+            csv_data.append([model, f"{value:.3f}"])
+
+        with open(f"./irt_ratings/{lang}_irt_userparams.csv", "w", newline="") as file:
+            writer = csv.writer(file)
+            writer.writerows(csv_data)
+
+            ## Item Parameters
+        csv_data = [["PROBLEM", "DIFFICULTY", "DISCRIMINATION"]]
+        for problem, value in item_param.items():
+            csv_data.append([problem, f"{value['beta']:.3f}", f"{value['alpha']:.3f}"])
+
+        with open(f"./irt_ratings/{lang}_irt_itemparams.csv", "w", newline="") as file:
+            writer = csv.writer(file)
+            writer.writerows(csv_data)
+
+        csv_data[1:] = sorted(csv_data[1:], key=lambda x: float(x[2]))
+        with open(
+            f"./irt_ratings/{lang}_sorted_irt_itemparams.csv", "w", newline=""
+        ) as file:
+            writer = csv.writer(file)
+            writer.writerows(csv_data)
     # Use the user_param to obtain the latency of the models.
     # Use the item_param to obtain the difficulty and discriminations of the problems.
