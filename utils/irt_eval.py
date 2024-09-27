@@ -29,7 +29,7 @@ if __name__ == "__main__":
         sanitized_code_dir = os.path.join(current_dir, f"../samples/{lang}/sanitized")
         for model in os.listdir(sanitized_code_dir):
             model = model.replace(".zip", "") if model.endswith(".zip") else model
-            if model in ["codegen2_1B"]:
+            if model in ["codegen2_1B", "santacoder"]:
                 continue
             models.append(model)
             for pid in range(164):
@@ -37,6 +37,12 @@ if __name__ == "__main__":
                 data.append((model, pid, response))
 
         item_param, user_param = compute_irt_params(data)
+
+        with open(f"./irt_ratings/{lang}_irt_userparams.json", "w") as file:
+            file.write(str(user_param))
+
+        with open(f"./irt_ratings/{lang}_irt_itemparams.json", "w") as file:
+            file.write(str(item_param))
         # add user_param in json formatted style in a new file, user_param.json
         csv_data = [["MODEL", "VALUE"]]
         for model, value in user_param.items():

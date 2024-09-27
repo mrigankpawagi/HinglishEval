@@ -1,0 +1,10 @@
+[project]
+name = "utils"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "pyirt>=0.3.4",
+    "setuptools>=75.1.0",
+]
