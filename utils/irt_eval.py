@@ -40,5 +40,7 @@ if __name__ == "__main__":
         # add user_param in json formatted style in a new file, user_param.json
         with open(f"./irt_ratings/user_param_{lang.lower()}.json", "w") as f:
             f.write(str(user_param))
+        with open(f"./irt_ratings/item_param_{lang.lower()}.json", "w") as f:
+            f.write(str(item_param))
     # Use the user_param to obtain the latency of the models.
     # Use the item_param to obtain the difficulty and discriminations of the problems.
