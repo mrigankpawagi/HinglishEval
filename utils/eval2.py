@@ -41,6 +41,9 @@ def diff_csv():
     difficulty_diffs = []
     discrimination_diffs = []
 
+    # count for which Hinglish has higher difficulty and discrimination
+    diff_hinglish_count = 0
+    disc_hinglish_count = 0
     # Loop through the range of problems and calculate differences
     for i in range(164):
         hinglish_row = next(
@@ -57,6 +60,13 @@ def diff_csv():
             discrimination_diff = float(hinglish_row["DISCRIMINATION"]) - float(
                 english_row["DISCRIMINATION"]
             )
+
+            # update count
+            if difficulty_diff > 0:
+                diff_hinglish_count += 1
+            if discrimination_diff > 0:
+                disc_hinglish_count += 1
+
             difficulty_diffs.append(difficulty_diff)
             discrimination_diffs.append(discrimination_diff)
 
@@ -84,6 +94,8 @@ def diff_csv():
     print(
         f"NET Average DISCRIMINATION Hinglish - English Difference: {net_avg_discrimination_diff}"
     )
+    print("Hinglish has higher difficulty for", diff_hinglish_count, "questions")
+    print("Hinglish has higher discrimination for", disc_hinglish_count, "questions")
 
 
 if __name__ == "__main__":
