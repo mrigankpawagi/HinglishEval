@@ -1,5 +1,5 @@
 # HinglishEval
-Evaluating the Effectiveness of Code-generation Models on Hinglish Prompts
+Artifact for **HinglishEval: Evaluating the Effectiveness of Code-generation Models on Hinglish Prompts**.
 
 ## Prompting in Hinglish
 We used GPT-4 to translate prompts in OpenAI's [HumanEval Benchmark](https://github.com/openai/human-eval) to _Hinglish_ and manually verified and fixed these translations. Our benchmark, __HinglishEval__ is available as a JSON file (`HinglishEval.json`) in this repository.
@@ -9,37 +9,15 @@ Hindi is one of the most widely spoken languages in the world, and the most wide
 
 Therefore it is most natural for Hindi speaking users to prompt LLMs in Hinglish when they want to generate code, or ask for help with programming in general (like explanations or debugging). This benchmark is an attempt to understand how well LLMs can understand and generate code when prompted in such a language.
 
-## Results
-We evaluated 18 models on the HinglishEval dataset, at temperature 0 (greedy decoding).
-
-| Model | Pass@1 | 
-| --- | --- |
-| GPT 4 | 79.27 |
-| GPT 3.5 Turbo | 58.54 |
-| Gemma 7B | 31.71 |
-| Gemma 2B | 17.68 |
-| Codegen 6B Mono | 15.24 |
-| Codegen 2B Mono | 9.76 |
-| Codegen 6B Multi | 8.54 |
-| Santacoder 1.1B | 6.71 |
-| Codegen-2 1B | 4.88 |
-| Codegen 6B NL | 3.66 |
-| Codegen 350M Mono | 3.05 |
-| Codegen 350M Multi | 3.05 |
-| Codegen 2B NL | 2.44 |
-| Polycoder 2.7B | 1.83 |
-| Codegen 2B Multi | 1.83 |
-| Polycoder 0.4B | 0.00 |
-| Polycoder 160M | 0.00 |
-| Codegen 350M NL | 0.00 |
-
 ## Contributions and Usage
 
 ### The HinglishEval Benchmark
-The HinglishEval benchmark contains all the problems in the HumanEval benchmark, with their prompts translated to Hinglish. The translation does not modify function signatures or doctests, and is limited to the purpose statement (supplied as a __docstring__ in Python) of each function. The translations were manually verified and corrected to ensure that they sound like spoken Hinglish.
+The HinglishEval benchmark contains all the problems in the HumanEval benchmark, with their prompts translated to Hinglish. The translation does not modify function signatures or doctests, and is limited to the purpose statement (supplied as a __docstring__ in Python) of each function. The translations were manually verified and corrected to ensure that they sound like idiomatic Hinglish.
 
 ### Code Samples for 18 models
-We have publicly released completions generated from 18 models on the prompts in the HinglishEval benchmark. These completions are available in the `samples/unsanitized` directory. Sanitized versions of these completions are also available in the `samples/sanitized` directory. Sanitization involves clipping the completions to only include function that was asked for, and removing any extraneous text.
+We have publicly released completions generated from 18 models on the prompts in the HinglishEval benchmark. 
+<!-- These completions are available in the `samples/unsanitized` directory. Sanitized versions of these completions are also available in the `samples/sanitized` directory. Sanitization involves clipping the completions to only include function that was asked for, and removing any extraneous text. -->
 
-### Evaluation of 18 models on HinglishEval
-We evaluated 18 models on the HinglishEval dataset and reported the results in the table above. We report only the Pass@1 metric since the models were evaluated at temperature 0 (greedy decoding). 
+### Evaluation of models on HinglishEval <!-- add number of models -->
+<!-- We evaluated 18 models on the HinglishEval dataset and reported the results in the table above. We report only the Pass@1 metric since the models were evaluated at temperature 0 (greedy decoding). -->
+We evaluate models on the HinglishEval dataset using the pass@1 metric as well as Item Response Theory (IRT).
