@@ -3,11 +3,12 @@ import os
 import openai
 
 openai.api_key = "<API-KEY>"
+# Insert your API key here.
 
 
 def gpt(docstr):
     response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",  # Or gpt-4
+        model="gpt-3.5-turbo",  # Change to GPT-4 if necessary
         messages=[
             {
                 "role": "system",

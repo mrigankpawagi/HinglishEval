@@ -1,7 +1,9 @@
 import json
 
 # from huggingface_hub import login
-# login(token="<HUGGING_FACE_TOKEN>") # might be necessary
+# login(token="<HUGGING_FACE_TOKEN>") 
+# An access token from HUGGINGFACE is necessary to generate the code completions.
+
 import os
 
 from transformers import AutoModelForCausalLM, AutoTokenizer
