@@ -1,11 +1,21 @@
 import csv
 from binary_matrix import irt_data, irt_data2
 
+
+# This is a custom evaluator for IRT parameters to compare results accross languages and models.
+
+# Load the IRT data for GPT-4 models in Hinglish and English
 gpt_4_hinglish = irt_data2["gpt_4"]
 gpt_4_english = irt_data["gpt_4"]
 
+# Any other model's data can be added too.
 
 def diff_ques():
+    """
+    Prints the problems which have different answers in the English and Hinglish prompts.
+    -- Correct in Hinglish but wrong in English
+    -- Correct in English but wrong in Hinglish.
+    """
     with open(
         "./irt_ratings/Combined_sorted_irt_itemparams.csv", newline=""
     ) as csvfile:
@@ -28,6 +38,10 @@ def diff_ques():
 
 
 def diff_csv():
+    """
+    Create a csv which contains the diffs between English and Hinglish prompts for a given model.
+    Also evaluates some average statistics related to the data.
+    """
     # Open the input CSV file
     with open("./irt_ratings/Hinglish_irt_itemparams.csv", newline="") as csvfile:
         csvreader = csv.DictReader(csvfile)
