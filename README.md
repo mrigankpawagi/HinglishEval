@@ -1,4 +1,4 @@
-# HinglishEval
+#HinglishEval
 Artifact for **HinglishEval: Evaluating the Effectiveness of Code-generation Models on Hinglish Prompts**.
 
 ## Prompting in Hinglish
@@ -21,4 +21,10 @@ We have publicly released completions generated from 18 models on the prompts in
 
 ### Evaluation of models on HinglishEval <!-- add number of models -->
 <!-- We evaluated 18 models on the HinglishEval dataset and reported the results in the table above. We report only the Pass@1 metric since the models were evaluated at temperature 0 (greedy decoding). -->
-We evaluate models on the HinglishEval dataset using the pass@1 metric as well as Item Response Theory (IRT).
+We evaluate models on the HinglishEval dataset using the pass@1 metric as well as Item Response Theory (IRT).3
+
+The dataset for HinglishEval is present under HinglishEval.json.
+
+To use the evaluation, first run the scripts for each of the models that you wish to evaluate. This can be done by running the scripts in ./samples/codemodels/{model}.py . The generated codes for the problem dataset for each of the models is stored automatically in the folder specified in the script. Then run the analysis functions in the ./tools directory to analyse the outputs of the generated codes.
+
+Different analyser functions are present in the directory.
