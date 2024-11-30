@@ -12,11 +12,12 @@ Therefore it is most natural for Hindi speaking users to prompt LLMs in Hinglish
 ## Contributions and Usage
 
 ### The HinglishEval Benchmark
-The HinglishEval benchmark contains all the problems in the HumanEval benchmark, with their prompts translated to Hinglish. The translation does not modify function signatures or doctests, and is limited to the purpose statement (supplied as a __docstring__ in Python) of each function. The translations were manually verified and corrected to ensure that they sound like idiomatic Hinglish.
+The HinglishEval benchmark contains all the problems in the HumanEval benchmark, with their prompts translated to Hinglish. The translation does not modify function signatures or doctests, and is limited to the purpose statement (supplied as a __docstring__ in Python) of each function. The translations were manually verified and corrected to ensure that they sound like idiomatic Hinglish. This benchmark is available in [HinglishEval_banchmark]("https://github.com/mrigankpawagi/HinglishEval/blob/main/HinglishEval.json").   
 
 ### Code Samples for 18 models
 We have publicly released completions generated from 18 models on the prompts in the HinglishEval benchmark. 
-<!-- These completions are available in the `samples/unsanitized` directory. Sanitized versions of these completions are also available in the `samples/sanitized` directory. Sanitization involves clipping the completions to only include function that was asked for, and removing any extraneous text. -->
+
+- These completions are available in the `samples/unsanitized` directory. Sanitized versions of these completions are also available in the `samples/sanitized` directory. Sanitization involves clipping the completions to only include function that was asked for, and removing any extraneous text.
 
 ### Evaluation of models on HinglishEval <!-- add number of models -->
 <!-- We evaluated 18 models on the HinglishEval dataset and reported the results in the table above. We report only the Pass@1 metric since the models were evaluated at temperature 0 (greedy decoding). -->
