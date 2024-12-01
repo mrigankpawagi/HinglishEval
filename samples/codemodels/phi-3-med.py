@@ -1,13 +1,17 @@
 import json
 import os
 
+from dotenv import load_dotenv
 from openai import OpenAI
 
+load_dotenv()
+
+DEEPINFRA_API_KEY = os.getenv("DEEPINFRA_API_KEY")
 
 def phigen(docstr):
     # Create an OpenAI client with your deepinfra token and endpoint
     openai = OpenAI(
-        api_key="api-key",
+        api_key=DEEPINFRA_API_KEY,
         base_url="https://api.deepinfra.com/v1/openai",
     )
 

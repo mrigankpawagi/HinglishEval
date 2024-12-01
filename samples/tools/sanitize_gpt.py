@@ -1,3 +1,7 @@
+import json
+import os
+
+
 def sanitize1(completion, entry_point):
     anchor=completion.find(f"def {entry_point}")
     x=completion.find("\n",anchor)
@@ -16,7 +20,6 @@ def sanitize2(completion, entry_point):
     return sanitize1(completion,entry_point)
 
 if __name__ == "__main__":
-    import os, json
     model_list = ["gpt_4_codes", "gpt_3.5_turbo_codes"]
     base_dir = os.path.dirname(__file__)
     path_humaneval = os.path.join(base_dir, "HinglishEval.json")
@@ -26,8 +29,8 @@ if __name__ == "__main__":
         sanitized_codes_dir = os.path.join(base_dir, "samples", "Hinglish", "sanitized", model)
         try:
             os.makedirs(sanitized_codes_dir, exist_ok=True)
-        except:
-            pass 
+        except Exception as e:
+            print("Error: ", e)
 
         path_codegen = os.path.join(base_dir, model)
         with open(path_humaneval) as f:

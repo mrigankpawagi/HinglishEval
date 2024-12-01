@@ -22,9 +22,11 @@ if __name__ == "__main__":
     codegen_dir = os.path.join(base_dir, "codegen_2B_multi_codes")
     try:
         os.makedirs(codegen_dir, exist_ok=True)
-    except:
-        pass
+    except Exception as e:
+        print(e)
 
+    # The model will be locally downloaded.
+    # Change the model name to the one you want to use.
     tokenizer = AutoTokenizer.from_pretrained("Salesforce/codegen-2B-multi")
     model = AutoModelForCausalLM.from_pretrained("Salesforce/codegen-2B-multi")
 

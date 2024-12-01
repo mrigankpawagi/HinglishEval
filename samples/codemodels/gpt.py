@@ -1,14 +1,16 @@
 import json
 import os
+
 import openai
+from dotenv import load_dotenv
 
-openai.api_key = "<API-KEY>"
-# Insert your API key here.
+load_dotenv()
 
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 def gpt(docstr):
     response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",  # Change to GPT-4 if necessary
+        model="gpt-3.5-turbo",  # Change to "gpt-4" if necessary. Check out more models at https://platform.openai.com/docs/models
         messages=[
             {
                 "role": "system",

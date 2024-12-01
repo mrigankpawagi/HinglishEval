@@ -40,7 +40,8 @@ def sanitize2(completion, prompt):
 
 
 if __name__ == "__main__":
-    import os, json
+    import json
+    import os
     models = ["gpt_4_codes", "gpt_3.5_turbo_codes"]
     base_dir = os.path.dirname(__file__)
     path_humaneval = os.path.join(base_dir, "HinglishEval.json")

@@ -1,13 +1,15 @@
 import json
-
-from huggingface_hub import login
-login(token="<HUGGING_FACE_TOKEN>") 
-# An access token from HUGGINGFACE is necessary to generate the code completions.
-
 import os
 
+from dotenv import load_dotenv
+from huggingface_hub import login
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
+load_dotenv()
+
+# An access token from HUGGINGFACE is necessary to generate the code completions.
+HUGGING_FACE_TOKEN = os.getenv("HUGGING_FACE_TOKEN")
+login(token=HUGGING_FACE_TOKEN) 
 
 def prompt_output(prompt, words):
 
@@ -29,6 +31,7 @@ if __name__ == "__main__":
     gemma_codes_dir = os.path.join(base_dir, "gemma_7B_codes")
     os.makedirs(gemma_codes_dir, exist_ok=True)
 
+    # The model will be locally downloaded.
     tokenizer = AutoTokenizer.from_pretrained("google/gemma-7b")
     model = AutoModelForCausalLM.from_pretrained("google/gemma-7b")
 
