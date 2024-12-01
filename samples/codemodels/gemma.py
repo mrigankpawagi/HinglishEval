@@ -1,7 +1,7 @@
 import json
 
-# from huggingface_hub import login
-# login(token="<HUGGING_FACE_TOKEN>") 
+from huggingface_hub import login
+login(token="<HUGGING_FACE_TOKEN>") 
 # An access token from HUGGINGFACE is necessary to generate the code completions.
 
 import os
