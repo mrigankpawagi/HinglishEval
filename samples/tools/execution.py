@@ -1,15 +1,14 @@
 # Adapted from https://github.com/openai/human-eval
 
-from typing import Optional, Callable, Dict
-import ast
 import contextlib
 import faulthandler
 import io
-import os
 import multiprocessing
+import os
 import platform
 import signal
 import tempfile
+from typing import Dict, Optional
 
 
 def check_correctness(problem: Dict, completion: str, timeout: float,

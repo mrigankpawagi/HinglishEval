@@ -1,8 +1,10 @@
-from openai import OpenAI
-import os
 import json
+import os
 import re
+
 from dotenv import load_dotenv
+from openai import OpenAI
+
 load_dotenv()
 
 client = OpenAI(
@@ -41,7 +43,15 @@ def docstring_translator(docstr):
 
 
 if __name__ == "__main__":
-    with open("../HumanEval.json") as f:
+
+    base_dir = os.path.dirname(__file__)
+    path_humaneval = os.path.join(base_dir, "HumanEval.json")
+
+    if path_humaneval is None:
+        print("Please download the HumanEval.json file as mentioned in README.md.")
+        exit(1)
+
+    with open(path_humaneval) as f:
         data = json.load(f)
 
     for problem in data:

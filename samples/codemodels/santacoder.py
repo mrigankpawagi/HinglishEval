@@ -1,7 +1,6 @@
 import json
 import os
 
-import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 tokenizer = AutoTokenizer.from_pretrained("bigcode/santacoder")

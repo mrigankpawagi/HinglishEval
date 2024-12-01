@@ -1,6 +1,5 @@
 import json
 import os
-import threading
 
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
@@ -30,7 +29,8 @@ def sanitize(completion, prompt):
 
 if __name__ == "__main__":
 
-    path_humaneval = "/path/to/HinglishEval.json"
+    base_dir = os.path.dirname(__file__)
+    path_humaneval = os.path.join(base_dir, "HinglishEval.json")
 
     tokenizer = AutoTokenizer.from_pretrained("NinedayWang/PolyCoder-0.4B")
     model = AutoModelForCausalLM.from_pretrained("NinedayWang/PolyCoder-0.4B")
