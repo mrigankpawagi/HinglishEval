@@ -1,7 +1,9 @@
 # HinglishEval
+
 Artifact for **HinglishEval: Evaluating the Effectiveness of Code-generation Models on Hinglish Prompts**.
 
 ### Background
+
 Hindi is one of the most widely spoken languages in the world, and the most widely spoen in India. A majority of the population in India does not speak English as their first language, and therefore language models that can understand prompts in native languages are important for wider accessibility. Hinglish is a blend of Hindi and English, with frequent usage of English words in sentences with standard Hindi grammar. This is not representative of everyday spoken Hindi for most people, but is rather common in coversations involving technical language, especially in the context of programming.
 
 Therefore it is most natural for Hindi speaking users to prompt LLMs in Hinglish when they want to generate code, or ask for help with programming in general (like explanations or debugging). We therefore present **HinglishEval**, a benchmark for evaluating the effectiveness of code-generation models on Hinglish prompts.
@@ -9,6 +11,7 @@ Therefore it is most natural for Hindi speaking users to prompt LLMs in Hinglish
 ## Contributions
 
 ### The HinglishEval Benchmark
+
 Our benchmark is based on OpenAI's [HumanEval Benchmark](https://github.com/openai/human-eval). HinglishEval contains all the problems in the HumanEval with their prompts translated to Hinglish. We used GPT-4 to translate the prompts and manually verified and corrected those translations. HinglishEval is available in JSON format in this repository as `HinglishEval.json`.
 
 For each prompt in HumanEval, we translated the purpose statements (supplied as _docstrings_ in Python) to Hinglish ensuring that the translations are idiomatic and preserve the original meaning. We do not modify function signatures or any doctests present in the docstrings.
@@ -26,8 +29,8 @@ We evaluated 18 models on the HinglishEval dataset using following two metrics.
 - **Pass@1**, which measures the percentage of times the model generates correct code on the first attempt. Note that the models were run with a temperature setting of 0 (greedy decoding).
 
 - **Item Response Theory** or IRT, a statistical framework for evaluating the relative capabilities of models based on the hardness of the problems presented to them. We use a 2-parameter IRT model to compute the latent abilities (competencies) of the models from the difficulty ($\beta$) and discrimination ($\alpha$) parameters of each problem.
-<br>
-Difficulty roughly measures how models perform at a problem on average, while discrimination roughly measures how well a problem differentiates between high- and low-performing models.
+  <br>
+  Difficulty roughly measures how models perform at a problem on average, while discrimination roughly measures how well a problem differentiates between high- and low-performing models.
 
 ## Usage
 
@@ -56,7 +59,7 @@ source hinglisheval/bin/activate
 pip install -r requirements.txt
 ```
 
-If you want to run the code for generating Hinglish translations, you will need to download the HumanEval dataset into the `/translation/` directory.
+If you want to run the code for generating Hinglish translations or English code generations, you will need to download the HumanEval dataset into the `/translation/` directory.
 
 ```bash
 cd translation
@@ -67,4 +70,7 @@ gunzip HumanEval.jsonl.gz # Extract the JSONL file
 ### 3. Running the Code
 
 - You can run and obtain code samples of various models by running codes in the `[samples/codemodels](/samples/codemodels)` directory.
-- You can generate the HinglishEval dataset by running the code in the `[samples/tools](/samples/tools)` directory.
+- You can generate the HinglishEval translations yourselves by running the codes present in the `[samples/tools](/samples/tools)` directory.
+- To evaluate the code generation from different models with IRT, you can either generate new responses OR (recommended) use the codes present in the [releases](https://github.com/mrigankpawagi/HinglishEval/releases) to reproduce the similar results as presented in the paper. The codes should be present in `/samples/{language}/sanitized` directory containing `.zip` files. The codes in `./irt/` directory can be used to evaluate the models on the HinglishEval dataset.
+
+If you have any questions or need help with running the code, please feel free to create an issue in this repository.
