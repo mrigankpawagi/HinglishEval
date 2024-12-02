@@ -59,18 +59,16 @@ source hinglisheval/bin/activate
 pip install -r requirements.txt
 ```
 
-If you want to run the code for generating Hinglish translations or English code generations, you will need to download the HumanEval dataset into the `/translation/` directory.
+If you want to run the code for generating Hinglish translations or code samples from English prompts, you will need to download the HumanEval dataset.
 
 ```bash
-cd translation
 curl -O https://github.com/openai/human-eval/raw/refs/heads/master/data/HumanEval.jsonl.gz
 gunzip HumanEval.jsonl.gz # Extract the JSONL file
 ```
 
 ### 3. Running the Code
 
-- You can run and obtain code samples of various models by running codes in the `[samples/codemodels](/samples/codemodels)` directory.
-- You can generate the HinglishEval translations yourselves by running the codes present in the `[samples/tools](/samples/tools)` directory.
-- To evaluate the code generation from different models with IRT, you can either generate new responses OR (recommended) use the codes present in the [releases](https://github.com/mrigankpawagi/HinglishEval/releases) to reproduce the similar results as presented in the paper. The codes should be present in `/samples/{language}/sanitized` directory containing `.zip` files. The codes in `./irt/` directory can be used to evaluate the models on the HinglishEval dataset.
+- You can run the scripts in the `/samples/codemodels/` directory to generate code samples from different models. 
+- To evaluate the code generation from different models with IRT, you can either generate new responses and sanitize them or directly use the santiized samples present in the releases. The scripts for the analysis are present in the `/irt/` directory.
 
-If you have any questions or need help with running the code, please feel free to create an issue in this repository.
+If you have any questions or need help with using this repository, please create an issue so that we can assist you.
