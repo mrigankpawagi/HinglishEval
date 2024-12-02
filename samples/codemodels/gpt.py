@@ -8,6 +8,7 @@ load_dotenv()
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
+
 def gpt(docstr):
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",  # Change to "gpt-4" if necessary. Check out more models at https://platform.openai.com/docs/models
@@ -29,6 +30,7 @@ def gpt(docstr):
     )
     return response.choices[0].message.content
 
+
 if __name__ == "__main__":
     base_dir = os.path.dirname(__file__)
     path_humaneval = os.path.join(base_dir, "HinglishEval.json")
@@ -38,7 +40,9 @@ if __name__ == "__main__":
         for pid in [10, 32, 38, 50]:
             prompt = data[pid]["prompt"]
             with open(
-                os.path.join(base_dir, "gpt_3.5_turbo_codes", f"{str(pid).zfill(3)}.py"),
+                os.path.join(
+                    base_dir, "gpt_3.5_turbo_codes", f"{str(pid).zfill(3)}.py"
+                ),
                 "w",
             ) as file:
                 file.write(gpt(prompt))

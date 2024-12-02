@@ -14,8 +14,10 @@ def sanitize1(completion, entry_point):
 def logfile(model):
     # Adjusted to dynamically construct the path using __file__
     base_dir = os.path.dirname(__file__)
-    log_path = os.path.join(base_dir, "samples", "English", "sanitized", model, "log.txt")
-    
+    log_path = os.path.join(
+        base_dir, "samples", "English", "sanitized", model, "log.txt"
+    )
+
     with open(log_path, "r") as f:
         file_lines = f.readlines()
         error = []
@@ -29,7 +31,7 @@ def logfile(model):
 
 
 def sanitize2(completion, prompt):
-    generated = completion[len(prompt) :]
+    generated = completion[len(prompt):]
     lines = generated.split("\n")
     final_lines = []
     for line in lines:
@@ -42,16 +44,16 @@ def sanitize2(completion, prompt):
 if __name__ == "__main__":
     import json
     import os
+
     models = ["gpt_4_codes", "gpt_3.5_turbo_codes"]
     base_dir = os.path.dirname(__file__)
     path_humaneval = os.path.join(base_dir, "HinglishEval.json")
-    
+
     for model in models:
-        sanitized_codes_dir = os.path.join(base_dir, "samples", "Hinglish", "sanitized", model)
-        try:
-            os.makedirs(sanitized_codes_dir, exist_ok=True)
-        except:
-            pass
+        sanitized_codes_dir = os.path.join(
+            base_dir, "samples", "Hinglish", "sanitized", model
+        )
+        os.makedirs(sanitized_codes_dir, exist_ok=True)
 
         with open(path_humaneval) as f:
             data = json.load(f)
@@ -60,19 +62,25 @@ if __name__ == "__main__":
                 prompt = data[pid]["prompt"]
                 entry_point = data[pid]["entry_point"]
                 path_codegen = os.path.join(base_dir, model)
-                sanitized_file_path = os.path.join(sanitized_codes_dir, f"{str(pid).zfill(3)}.py")
-                
+                sanitized_file_path = os.path.join(
+                    sanitized_codes_dir, f"{str(pid).zfill(3)}.py"
+                )
+
                 if pid not in error:
-                    code_file_path = os.path.join(path_codegen, f"{str(pid).zfill(3)}.py")
+                    code_file_path = os.path.join(
+                        path_codegen, f"{str(pid).zfill(3)}.py"
+                    )
                     with open(code_file_path) as file:
                         code = file.read()
                     with open(sanitized_file_path, "w") as file:
                         file.write(sanitize1(code, entry_point))
                         print(f"done for {pid}")
                 else:
-                    code_file_path = os.path.join(path_codegen, f"{str(pid).zfill(3)}.py")
+                    code_file_path = os.path.join(
+                        path_codegen, f"{str(pid).zfill(3)}.py"
+                    )
                     with open(code_file_path) as file:
                         code = file.read()
                     with open(sanitized_file_path, "w") as file:
                         file.write(sanitize2(code, prompt))
-                        print(f"done for {pid}")    
+                        print(f"done for {pid}")

@@ -8,6 +8,7 @@ load_dotenv()
 
 DEEPINFRA_API_KEY = os.getenv("DEEPINFRA_API_KEY")
 
+
 def llama3(docstr):
     # Create an OpenAI client with your deepinfra token and endpoint
     openai = OpenAI(
@@ -16,7 +17,7 @@ def llama3(docstr):
     )
 
     chat_completion = openai.chat.completions.create(
-        model="meta-llama/Meta-Llama-3-70B-Instruct",  ## MODEL NAME
+        model="meta-llama/Meta-Llama-3-70B-Instruct",  # MODEL NAME
         messages=[
             {
                 "role": "system",
@@ -42,25 +43,30 @@ if __name__ == "__main__":
     path_humaneval_hinglish = os.path.join(base_dir, "HinglishEval.json")
     path_humaneval_english = os.path.join(base_dir, "HumanEval.json")
 
-    unsanitized_hinglish_dir = os.path.join(base_dir,"Hinglish", "unsanitized", "llama3")
+    unsanitized_hinglish_dir = os.path.join(
+        base_dir, "Hinglish", "unsanitized", "llama3"
+    )
     os.makedirs(unsanitized_hinglish_dir, exist_ok=True)
 
     with open(path_humaneval_hinglish) as f:
         data = json.load(f)
         for pid in range(59, 164):  # Adjusted range for Hinglish
             prompt = data[pid]["prompt"]
-            with open(os.path.join(unsanitized_hinglish_dir, f"{str(pid).zfill(3)}.py"), "w") as file:
+            with open(
+                os.path.join(unsanitized_hinglish_dir, f"{str(pid).zfill(3)}.py"), "w"
+            ) as file:
                 file.write(llama3(prompt))
                 print(f"done for {pid}")
 
-    unsanitized_english_dir = os.path.join(base_dir, "English",  "unsanitized", "llama3")
+    unsanitized_english_dir = os.path.join(base_dir, "English", "unsanitized", "llama3")
     os.makedirs(unsanitized_english_dir, exist_ok=True)
 
     with open(path_humaneval_english) as f:
         data = json.load(f)
         for pid in range(164):  # Adjusted range for English
             prompt = data[pid]["prompt"]
-            with open(os.path.join(unsanitized_english_dir, f"{str(pid).zfill(3)}.py"), "w") as file:
+            with open(
+                os.path.join(unsanitized_english_dir, f"{str(pid).zfill(3)}.py"), "w"
+            ) as file:
                 file.write(llama3(prompt))
                 print(f"done for {pid}")
-

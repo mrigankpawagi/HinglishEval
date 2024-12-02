@@ -16,7 +16,7 @@ def prompt_output(prompt, words):
 
 
 def sanitize(completion, prompt):
-    generated = completion[len(prompt) :]
+    generated = completion[len(prompt):]
     lines = generated.split("\n")
     final_lines = []
     for line in lines:
@@ -28,7 +28,6 @@ def sanitize(completion, prompt):
 
 
 if __name__ == "__main__":
-
     base_dir = os.path.dirname(__file__)
     path_humaneval = os.path.join(base_dir, "HinglishEval.json")
 
@@ -37,7 +36,7 @@ if __name__ == "__main__":
 
     with open(path_humaneval) as f:
         data = json.load(f)
-        for pid in range(164): # 10,32,38, 50 are special
+        for pid in range(164):  # 10,32,38, 50 are special
             prompt = data[pid]["prompt"]
             with open(
                 f"/path/to/polycoder_0.4B_codes/{str(pid).zfill(3)}.py", "w"
@@ -51,7 +50,7 @@ if __name__ == "__main__":
 
     with open(path_humaneval) as f:
         data = json.load(f)
-        for pid in range(164): # 10,32,38, 50 are special
+        for pid in range(164):  # 10,32,38, 50 are special
             prompt = data[pid]["prompt"]
             with open(
                 f"/path/to/polycoder_2.7B_codes/{str(pid).zfill(3)}.py", "w"
@@ -64,7 +63,7 @@ if __name__ == "__main__":
 
     with open(path_humaneval) as f:
         data = json.load(f)
-        for pid in range(164): # 10,32,38, 50 are special
+        for pid in range(164):  # 10,32,38, 50 are special
             prompt = data[pid]["prompt"]
             with open(
                 f"/path/to/polycoder_160M_codes/{str(pid).zfill(3)}.py", "w"
@@ -72,4 +71,3 @@ if __name__ == "__main__":
                 completion = prompt_output(prompt, 512)
                 file.write(sanitize(completion, prompt))
                 print(f"done for {pid}")
-

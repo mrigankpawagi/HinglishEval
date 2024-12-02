@@ -10,6 +10,7 @@ gpt_4_english = irt_data["gpt_4"]
 
 # Any other model's data can be added too.
 
+
 def diff_ques():
     """
     Prints the problems which have different answers in the English and Hinglish prompts.
