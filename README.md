@@ -29,7 +29,7 @@ We evaluated 18 models on the HinglishEval dataset using following two metrics.
 <br>
 Difficulty roughly measures how models perform at a problem on average, while discrimination roughly measures how well a problem differentiates between high- and low-performing models.
 
-## Usages
+## Usage
 
 Here is a brief overview on duplicating the results, running the codes and evaluating the models on the HinglishEval benchmark.
 
