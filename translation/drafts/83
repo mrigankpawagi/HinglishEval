@@ -1,8 +1,0 @@
-"""
-    Given a positive integer n, return the count of the numbers of n-digit
-    positive integers that start or end with 1.
-    """
-
-"""
-Diye gaye positive integer n ke liye, n-digit wale positive integers ki ginti return karo jo 1 se shuru hote hain ya 1 pe end hote hain.
-"""
