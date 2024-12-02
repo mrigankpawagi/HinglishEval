@@ -45,14 +45,14 @@ def docstring_translator(docstr):
 if __name__ == "__main__":
 
     base_dir = os.path.dirname(__file__)
-    path_humaneval = os.path.join(base_dir, "HumanEval.json")
+    path_humaneval = os.path.join(base_dir, "HumanEval.jsonl")
 
     if path_humaneval is None:
-        print("Please download the HumanEval.json file as mentioned in README.md.")
+        print("Please download the HumanEval.jsonl file as mentioned in README.md.")
         exit(1)
 
     with open(path_humaneval) as f:
-        data = json.load(f)
+        data = [json.loads(line) for line in f]
 
     for problem in data:
         task_id = problem["task_id"].split("/")[-1]
