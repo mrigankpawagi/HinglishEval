@@ -1,7 +1,6 @@
 import json
 import os
 
-import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 tokenizer = AutoTokenizer.from_pretrained("bigcode/santacoder")
@@ -11,7 +10,7 @@ model = AutoModelForCausalLM.from_pretrained(
 
 
 def sanitize(completion, prompt):
-    generated = completion[len(prompt) :]
+    generated = completion[len(prompt):]
     lines = generated.split("\n")
     final_lines = []
     for line in lines:
@@ -40,8 +39,10 @@ if __name__ == "__main__":
 
     with open(path_humaneval) as f:
         data = json.load(f)
-        for pid in  range (164): # numbers in [10, 32, 38, 50] are special probs
+        for pid in range(164):  # numbers in [10, 32, 38, 50] are special probs
             prompt = data[pid]["prompt"]
-            with open(os.path.join(santacoder_codes_dir, f"{str(pid).zfill(3)}.py"), "w") as file:
+            with open(
+                os.path.join(santacoder_codes_dir, f"{str(pid).zfill(3)}.py"), "w"
+            ) as file:
                 file.write(santa_coder(prompt))
                 print(f"done for {pid}")
