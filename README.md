@@ -31,11 +31,9 @@ Difficulty roughly measures how models perform at a problem on average, while di
 
 ## Usage
 
-Here is a brief overview on duplicating the results, running the codes and evaluating the models on the HinglishEval benchmark.
+Follow the instructions below to reproduce the results presented in the paper.
 
 ### 1. Cloning the Repository
-
-Clone the repository using the following command:
 
 ```bash
 git clone https://github.com/mrigankpawagi/HinglishEval.git
@@ -44,13 +42,13 @@ cd HinglishEval
 
 ### 2. Setting up the Environment
 
-Some of the models will be downloaded locally via [HuggingFace](https://huggingface.co/models) like codegen, polycoder, gemma, etc. while others like gpt, mistral, llama, etc. use API-KEYS to access these models. We use mainly two distributors which are [OpenAI](https://openai.com) and [DeepInfra](https://deepinfra.com) You have to setup your own API Keys and set them in the `.env` file as present in the cloned repository.
-<br>
+Copy the `/example.env` file to `/.env` and place your API keys appropriately in this `.env` file. We use OpenAI, DeepInfra and HuggingFace for accessing different models and you can find instructions to obtain their respective API keys at the links below.
 
-You can find the link to obtain the API Keys for [OPENAI](https://openai.com/index/openai-api/), [DEEPINFRA](https://deepinfra.com/docs/deep_infra_api) and [HUGGING FACE](https://huggingface.co/docs/api-inference/en/index) in the respective links.
+- [OpenAI](https://openai.com/index/openai-api/)
+- [DeepInfra](https://deepinfra.com/docs/deep_infra_api)
+- [Hugging Face](https://huggingface.co/docs/api-inference/en/index)
 
-<br>
-Next thing to do is to install some requirements which are necessary to run the code. You can create a virtual environment and install the requirements using the following commands:
+It is recommended to use a virtual environment for installing dependencies and running the code.
 
 ```bash
 python3 -m venv hinglisheval
@@ -58,11 +56,12 @@ source hinglisheval/bin/activate
 pip install -r requirements.txt
 ```
 
-Lastly(optional), we need to install `[HumanEval.json](https://github.com/openai/human-eval/blob/master/data)` file if you are interested in generating `English` generations or reprodice `HinglishEval.json`. This can be done by running the following command:
+If you want to run the code for generating Hinglish translations, you will need to download the HumanEval dataset into the `/translation/` directory.
 
 ```bash
+cd translation
 curl -O https://github.com/openai/human-eval/raw/refs/heads/master/data/HumanEval.jsonl.gz
-gunzip HumanEval.jsonl.gz
+gunzip HumanEval.jsonl.gz # Extract the JSONL file
 ```
 
 ### 3. Running the Code
