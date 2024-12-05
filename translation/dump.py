@@ -1,4 +1,5 @@
 import json
+import os
 
 
 def extract_prompt_from_file(file_path):
@@ -11,8 +12,9 @@ def extract_prompt_from_file(file_path):
 
 def hinglish_json():
     # File path to the JSON file
-    file_path = "../HumanEval.json"
-    with open(file_path, "r") as json_file:
+    base_dir = os.path.dirname(__file__)
+    path_humaneval = os.path.join(base_dir, "HumanEval.jsonl")
+    with open(path_humaneval, "r") as json_file:
         data = json.load(json_file)
 
     # modify the data with the hinglish prompts
