@@ -1,6 +1,6 @@
 # HinglishEval
 
-Artifact for **HinglishEval: Evaluating the Effectiveness of Code-generation Models on Hinglish Prompts**.
+Artifact for **HinglishEval: Evaluating the Effectiveness of Code-generation Models on Hinglish Prompts** presented at the Seventh Annual Conference on Computing Education (COMPUTE 2024). You can check out a draft of the paper [here](/draft/HinglishEval.pdf).
 
 ### Background
 
