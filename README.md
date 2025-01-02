@@ -12,7 +12,7 @@ Therefore it is most natural for Hindi speaking users to prompt LLMs in Hinglish
 
 ### The HinglishEval Benchmark
 
-Our benchmark is based on OpenAI's [HumanEval Benchmark](https://github.com/openai/human-eval). HinglishEval contains all the problems in the HumanEval with their prompts translated to Hinglish. We used GPT-4 to translate the prompts and manually verified and corrected those translations. HinglishEval is available in JSON format in this repository as `HinglishEval.json`.
+Our benchmark is based on OpenAI's [HumanEval Benchmark](https://github.com/openai/human-eval). HinglishEval contains all the problems in the HumanEval with their prompts translated to Hinglish. We used GPT-4 to translate the prompts and manually verified and corrected those translations. HinglishEval is available in JSON format in this repository as the zipped file `HinglishEval.json.gz`.
 
 For each prompt in HumanEval, we translated the purpose statements (supplied as _docstrings_ in Python) to Hinglish ensuring that the translations are idiomatic and preserve the original meaning. We do not modify function signatures or any doctests present in the docstrings.
 
