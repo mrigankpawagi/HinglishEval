@@ -1,6 +1,6 @@
 # HinglishEval
 
-Artifact for **HinglishEval: Evaluating the Effectiveness of Code-generation Models on Hinglish Prompts** presented at the Seventh Annual Conference on Computing Education, [COMPUTE 2024](https://compute2024.netlify.app/). You can check out the paper [here](https://link.springer.com/chapter/10.1007/978-3-031-84391-4_2).
+Artifact for **HinglishEval: Evaluating the Effectiveness of Code-generation Models on Hinglish Prompts** presented at the Seventh Annual Conference on Computing Education (COMPUTE 2024). You can check out the paper [here](https://link.springer.com/chapter/10.1007/978-3-031-84391-4_2).
 
 ### Background
 
@@ -76,21 +76,11 @@ If you have any questions or need help with using this repository, please create
 ## Citation
 
 ```bibtex
-@inproceedings{10.1007/978-3-031-84391-4_2,
-author="Pawagi, Mrigank
-and Gupta, Anirudh
-and Rolla, Siddharth Reddy
-and Saha, Kintan",
-editor="Karkare, Amey
-and Prasad, Prajish
-and Raman, Arun",
-title="HinglishEval: Evaluating the Effectiveness of Code-Generation Models on Hinglish Prompts",
-booktitle="Computing Education Research",
-year="2025",
-publisher="Springer Nature Switzerland",
-address="Cham",
-pages="18--29",
-abstract="Code-generation Models are Large Language Models (LLMs) that are fine-tuned to generate code from natural-language prompts. Prior work shows that such models can democratize programming by translating clear English-language prompts into code for simple programming tasks. In this paper, we explore whether this democratization can extend to novice programmers who lack proficiency in English but are able to craft clear prompts in another language. Specifically, we consider prompts in Hinglish, a mixture of Hindi and English that many students in India are comfortable with. We make two contributions. First, we propose a semi-automated technique to translate English prompts into Hinglish, and we use this technique to create HinglishEval: a Hinglish translation of the widely-used code-generation benchmark HumanEval. Second, we compare the performance of several popular open- and closed-source code-generation models on Hinglish and English prompts. Our findings suggest that although code-generation models are generally more effective at generating accurate code from English prompts, their efficacy with Hinglish prompts is promising.",
-isbn="978-3-031-84391-4"
+@inproceedings{HinglishEval2025,
+  title        = {{HinglishEval: E}valuating the Effectiveness of Code-Generation Models on Hinglish Prompts},
+  author       = {Pawagi, Mrigank and Gupta, Anirudh and Rolla, Siddharth Reddy and Saha, Kintan},
+  year         = 2025,
+  booktitle    = {Computing Education Research},
+  doi          = {10.1007/978-3-031-84391-4_2}
 }
 ```
