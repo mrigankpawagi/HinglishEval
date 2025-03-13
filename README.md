@@ -1,6 +1,6 @@
 # HinglishEval
 
-Artifact for **HinglishEval: Evaluating the Effectiveness of Code-generation Models on Hinglish Prompts** presented at the Seventh Annual Conference on Computing Education (COMPUTE 2024). You can check out a draft of the paper [here](/draft/HinglishEval.pdf).
+Artifact for **HinglishEval: Evaluating the Effectiveness of Code-generation Models on Hinglish Prompts** presented at the Seventh Annual Conference on Computing Education (COMPUTE 2024). You can check out the paper [here](https://link.springer.com/chapter/10.1007/978-3-031-84391-4_2).
 
 ### Background
 
@@ -68,7 +68,19 @@ gunzip HumanEval.jsonl.gz # Extract the JSONL file
 
 ### 3. Running the Code
 
-- You can run the scripts in the `/samples/codemodels/` directory to generate code samples from different models. 
+- You can run the scripts in the `/samples/codemodels/` directory to generate code samples from different models.
 - To evaluate the code generation from different models with IRT, you can either generate new responses and sanitize them or directly use the santiized samples present in the releases. The scripts for the analysis are present in the `/irt/` directory.
 
 If you have any questions or need help with using this repository, please create an issue so that we can assist you.
+
+## Citation
+
+```bibtex
+@inproceedings{HinglishEval2025,
+  title        = {{HinglishEval: E}valuating the Effectiveness of Code-Generation Models on Hinglish Prompts},
+  author       = {Pawagi, Mrigank and Gupta, Anirudh and Rolla, Siddharth Reddy and Saha, Kintan},
+  year         = 2025,
+  booktitle    = {Computing Education Research},
+  doi          = {10.1007/978-3-031-84391-4_2}
+}
+```
